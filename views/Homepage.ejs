@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head.ejs', {title:"CAR-HAWA | Homepage"}) %>
+        <link rel="stylesheet" href="/css/Homepage.css">
+        <link rel="stylesheet" href="/css/product-holder.css">
+</head>
+
+<body>
+    <main>
+        <%- include('includes/header') %>
+            <section>
+                <div class="text-div">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, necessitatibus. Aliquam in
+                        corrupti blanditiis eos, accusamus iste iure, ad ab vel minus libero mollitia eligendi. Quia
+                        possimus iste atque suscipit.</p>
+                </div>
+                <div class="image-div">
+                    <img src="/images/car-hawa.jpeg" alt="coffee">
+                </div>
+            </section>
+
+            <section>
+                <div id="products">
+                    <%- include('includes/product-holder.ejs') %>
+                </div>
+            </section>
+    </main>
+</body>
+
+
+</html>

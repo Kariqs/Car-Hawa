@@ -1,0 +1,42 @@
+section {
+  display: flex;
+}
+
+.text-div {
+  width: 30%;
+}
+
+.text-div p {
+  color: black;
+  font-weight: bold;
+}
+
+.image-div {
+  width: 70%;
+}
+
+.image-div img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#products{
+  padding: 1rem;
+}
+
+@media (max-width: 48rem) {
+  section {
+    flex-direction: column;
+  }
+
+  .image-div {
+    width: 100%;
+  }
+
+  .text-div {
+    width: 100%;
+    padding: 0.5rem;
+    margin: auto;
+  }
+}

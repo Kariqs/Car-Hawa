@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head.ejs',{title:"CAR-HAWA | Login"}) %>
+        <link rel="stylesheet" href="css/form.css">
+</head>
+
+<body>
+    <main>
+        <%- include('includes/header.ejs') %>
+            <div class="form-div">
+                <img src="images/car-hawa.jpeg" alt="cofee">
+                <form action="/login" method="post">
+                    <h3>Login to your account.</h3>
+                    <p><label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </p>
+                    <p><label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </p>
+                    <div class="button-div">
+                        <p><button class="btn btn-alt" type="reset">Clear</button></p>
+                        <p><button class="btn" type="submit">Submit</button></p>
+
+                    </div>
+                    <a href="/signup">Create an account.</a>
+                </form>
+            </div>
+    </main>
+</body>
+
+</html>

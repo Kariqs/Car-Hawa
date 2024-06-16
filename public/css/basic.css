@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  width: 100%;
+  max-width: 60rem;
+  margin: auto;
+}

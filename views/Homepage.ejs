@@ -21,10 +21,13 @@
                 </div>
             </section>
 
-            <section>
-                <div id="products">
-                    <%- include('includes/product-holder.ejs') %>
-                </div>
+            <section id="products">
+                
+                    <% for( let product of products) { %>
+                        <%- include('includes/product-holder.ejs',{product:product,percentageDiscount:percentageDiscount})
+                            %>
+                            <% } %>
+                
             </section>
     </main>
 </body>

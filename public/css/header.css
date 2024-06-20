@@ -18,7 +18,6 @@
   color: black;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: larger;
 }
 
 .nav-div {
@@ -49,13 +48,17 @@
   display: none;
   flex-direction: column;
   justify-content: space-around;
+  border: 0.5px solid black;
+  border-radius: 2.5px;
 }
 
 .hum-button span {
-  width: 100%;
-  height: 6px;
+  width: 80%;
+  height: 4px;
   background-color: black;
+  margin: auto;
   display: block;
+  font-weight: lighter;
 }
 
 #side-drawer {

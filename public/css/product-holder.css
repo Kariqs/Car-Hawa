@@ -43,10 +43,12 @@
 
 #discount {
   background-color: red;
+  text-align: center;
+  font-weight: bold;
   color: white;
   font-weight: lighter;
   padding: 0.25rem;
-  border-radius: 200%;
+  border-radius: 100%;
 }
 
 .action-buttons {

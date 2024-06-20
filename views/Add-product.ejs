@@ -14,16 +14,19 @@
             <form action="/add-product" method="post">
                 <h3>Add a Product.</h3>
                 <p><label for="name">Coffee Name</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="name" required>
+                </p>
+                <p><label for="initial-price">Initial Coffee Price</label>
+                    <input type="number" id="initial-price" name="initial-price" required>
                 </p>
                 <p><label for="price">Coffee Price</label>
-                    <input type="number" id="price" name="price">
+                    <input type="number" id="price" name="price" required>
                 </p>
                 <p><label for="description">Coffee Description</label>
-                    <textarea name="description" id="description"></textarea>
+                    <textarea name="description" id="description" required></textarea>
                 </p>
                 <p><label for="imageUrl">Image URL</label>
-                    <input type="text" name="imageUrl" id="imageUrl">
+                    <input type="text" name="imageUrl" id="imageUrl" required>
                 <div class="button-div">
                     <p><button class="btn btn-alt" type="reset">Clear</button></p>
                     <p><button class="btn" type="submit">Submit</button></p>

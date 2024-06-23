@@ -24,3 +24,14 @@ exports.postAddProduct = (req, res) => {
       console.log("An error occured and the product was not saved: " + error);
     });
 };
+
+exports.deleteProduct = (req, res) => {
+  const prodId = req.params.productId;
+  Product.findByIdAndDelete(prodId)
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((error) => {
+      console.log("An error occured trying to delete product." + error);
+    });
+};

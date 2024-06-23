@@ -15,8 +15,11 @@
         </div>
     </div>
     <div class="action-buttons">
-        <a class="btn" href="">View Product</a>
-        <a class="btn" href="">Delete</a>
+        <a class="btn" href="/product/<%= product._id %>">View Product</a>
+        <form action="/admin/product/delete/<%= product.id %>" method="post">
+            <input type="hidden" value="<%= product.id %>">
+            <button class="btn" type="submit">Delete</button>
+        </form>
         <a class="btn btn-alt" href="">Edit</a>
     </div>
 </article>

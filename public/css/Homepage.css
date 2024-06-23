@@ -21,9 +21,14 @@ section {
   object-fit: cover;
 }
 
+#product-header {
+  text-align: center;
+}
+
 #products {
   padding: 1rem;
   display: grid;
+  place-items: center;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 }

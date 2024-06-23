@@ -1,0 +1,31 @@
+.product-holder {
+  border: 1px solid black;
+  overflow: hidden;
+  width: 70%;
+  margin: auto;
+  border-radius: 10px;
+}
+.product-image {
+  width: 100%;
+}
+
+.product-image img {
+  width: 100%;
+  object-fit: cover;
+}
+.product-desc {
+  padding: 0.5rem;
+}
+
+.product-action {
+  padding: 1rem;
+  text-align: center;
+}
+.product-action a {
+  width: 6rem;
+  height: 2.5rem;
+  background-color: black;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 5px;
+}

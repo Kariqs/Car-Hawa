@@ -52,3 +52,14 @@ exports.postSignup = (req, res) => {
 exports.getLogin = (req, res) => {
   res.render("Login");
 };
+
+exports.getOneProduct = (req, res) => {
+  const prodId = req.params.productId;
+  Product.findById(prodId)
+    .then((prod) => {
+      res.render("View-product", { product: prod });
+    })
+    .catch((error) => {
+      console.log("Error fetching product: " + error);
+    });
+};

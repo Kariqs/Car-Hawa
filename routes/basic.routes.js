@@ -7,4 +7,6 @@ router.get("/signup", basicControllers.getSignup);
 router.post("/signup", basicControllers.postSignup);
 router.get("/login", basicControllers.getLogin);
 
+router.get("/product/:productId", basicControllers.getOneProduct);
+
 module.exports = router;

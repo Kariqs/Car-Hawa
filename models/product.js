@@ -21,6 +21,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  discount: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);

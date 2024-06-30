@@ -1,0 +1,72 @@
+main {
+  position: relative;
+}
+table {
+  width: 95%;
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 18px;
+  text-align: left;
+}
+th,
+td {
+  padding: 2px 5px;
+  border: 1px solid black;
+}
+
+td img {
+  width: 4rem;
+  height: auto;
+}
+.td-form {
+  display: inline;
+}
+#add {
+  color: white;
+  font: inherit;
+  background-color: green;
+  padding: 0.125rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: 1px solid green;
+}
+#delete {
+  color: white;
+  background-color: red;
+  padding: 0.125rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.9rem;
+  border: 1px solid red;
+}
+#edit {
+  color: white;
+  font: inherit;
+  background-color: green;
+  padding: 0.125rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: 1px solid green;
+}
+
+.form-div {
+  display: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+
+#cancel {
+  color: white;
+  background-color: red;
+  padding: 0.25rem;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.9rem;
+  border: 1px solid red;
+  text-transform: uppercase;
+}

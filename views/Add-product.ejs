@@ -4,35 +4,87 @@
 <head>
     <%- include('includes/head.ejs',{title:"CAR-HAWA | Add Product"}) %>
         <link rel="stylesheet" href="/css/form.css">
+        <link rel="stylesheet" href="/css/add-product.css">
+        <script src="/javascript/add-product.js" defer></script>
 </head>
 
 <body>
     <main>
         <%- include('includes/header.ejs') %>
-        <div class="form-div">
-            <img src="/images/car-hawa.jpeg" alt="cofee">
-            <form action="/admin/add-product" method="post">
-                <h3>Add a Product.</h3>
-                <p><label for="name">Coffee Name</label>
-                    <input type="text" id="name" name="name" required>
-                </p>
-                <p><label for="initialPrice">Initial Coffee Price</label>
-                    <input type="number" id="initialPrice" name="initialPrice" required>
-                </p>
-                <p><label for="price">Coffee Price</label>
-                    <input type="number" id="price" name="price" required>
-                </p>
-                <p><label for="description">Coffee Description</label>
-                    <textarea name="description" id="description" required></textarea>
-                </p>
-                <p><label for="imageUrl">Image URL</label>
-                    <input type="text" name="imageUrl" id="imageUrl" required>
-                <div class="button-div">
-                    <p><button class="btn btn-alt" type="reset">Clear</button></p>
-                    <p><button class="btn" type="submit">Submit</button></p>
-                </div>
-            </form>
-        </div>
+            <div>
+                <p style="text-align: center;">Total products: <%= products.length %> product(s)
+                        <button id="add">Add Product</button>
+            </div>
+            </p>
+            <div>
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>Image</th>
+                            <th>Initial Price</th>
+                            <th>Selling Price</th>
+                            <th>Discount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for( let product of products) { %>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <%= product.name %>
+                                </td>
+                                <td>
+                                    <img src=" <%= product.imageUrl %>" alt="image">
+                                </td>
+                                <td>
+                                    <%= product.initialPrice %>
+                                </td>
+                                <td>
+                                    <%= product.price %>
+                                </td>
+                                <td>
+                                    <%= product.discount %>%
+                                </td>
+                                <td>
+                                    <form class="td-form" action="/admin/product/delete/<%= product.id %>"
+                                        method="post">
+                                        <input type="hidden" value="<%= product.id %>">
+                                        <button id="delete" type="submit">Delete</button>
+                                    </form>
+                                    <a id="edit" href="">Edit</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-div">
+                <button id="cancel">Close</button>
+                <form action="/admin/add-product" method="post">
+                    <h3>Add a Product.</h3>
+                    <p><label for="name">Coffee Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </p>
+                    <p><label for="initialPrice">Initial Coffee Price</label>
+                        <input type="number" id="initialPrice" name="initialPrice" required>
+                    </p>
+                    <p><label for="price">Coffee Price</label>
+                        <input type="number" id="price" name="price" required>
+                    </p>
+                    <p><label for="description">Coffee Description</label>
+                        <textarea name="description" id="description" required></textarea>
+                    </p>
+                    <p><label for="imageUrl">Image URL</label>
+                        <input type="text" name="imageUrl" id="imageUrl" required>
+                    <div class="button-div">
+                        <p><button class="btn btn-alt" type="reset">Clear</button></p>
+                        <p><button class="btn" type="submit">Submit</button></p>
+                    </div>
+                </form>
+            </div>
     </main>
 </body>
 

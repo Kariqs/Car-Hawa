@@ -10,16 +10,11 @@
             <p id="initial">Was Ksh.<%= product.initialPrice %>
             </p>
             <p id="discount">
-                -<%= percentageDiscount %>%
+                -<%= product.discount %>%
             </p>
         </div>
     </div>
     <div class="action-buttons">
         <a class="btn" href="/product/<%= product._id %>">View Product</a>
-        <form action="/admin/product/delete/<%= product.id %>" method="post">
-            <input type="hidden" value="<%= product.id %>">
-            <button class="btn" type="submit">Delete</button>
-        </form>
-        <a class="btn btn-alt" href="">Edit</a>
     </div>
 </article>

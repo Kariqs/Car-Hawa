@@ -1,22 +1,10 @@
 const User = require("../models/user");
 const Product = require("../models/product");
-const product = require("../models/product");
 exports.getHome = (req, res) => {
-  const products = Product.find()
+  Product.find()
     .then((products) => {
-      let initialPrice;
-      let currentPrice;
-      let percentageDiscount;
-      for (let product of products) {
-        initialPrice = product.initialPrice;
-        currentPrice = product.price;
-        const discount = initialPrice - currentPrice;
-        percentageDiscount = ((discount / initialPrice) * 100).toFixed(0);
-        console.log(percentageDiscount);
-      }
       res.render("Homepage", {
         products: products,
-        percentageDiscount: percentageDiscount,
       });
     })
     .catch((error) => {

@@ -1,6 +1,6 @@
 .product-card {
   width: 18rem;
-  border: 1px solid rgb(58, 58, 58);
+  border: 1px solid #4a4a4a;
   /* border-radius: 10px; */
   overflow: hidden;
 }
@@ -17,6 +17,7 @@
 .product-detail {
   padding: 0.25rem;
   text-align: center;
+  color: #4a4a4a;
 }
 
 #product-detail h4 {
@@ -31,14 +32,17 @@
 .price p {
   margin: 0;
   padding: 0;
+  color: #4a4a4a;
 }
 
 #selling {
   font-weight: bold;
+  color: #4a4a4a;
 }
 #initial {
   text-decoration: line-through;
   font-style: italic;
+  color: #4a4a4a;
 }
 
 #discount {
@@ -59,7 +63,7 @@
 }
 
 .btn {
-  background-color: black;
+  background-color: green;
   color: white;
   padding: 0.25rem;
   border-radius: 5px;
@@ -67,12 +71,13 @@
 
 .btn-alt {
   background-color: transparent;
-  color: black;
-  border: 1px solid black;
+  color: green;
+  border: 1px solid green;
 }
 
 @media (max-width: 48rem) {
   .product-card {
-    width: 100%;
+    width: 90%;
+    border-radius: 5px;
   }
 }

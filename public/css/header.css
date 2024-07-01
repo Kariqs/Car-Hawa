@@ -2,6 +2,7 @@
   list-style: none;
 }
 .main-header {
+  font-family: "Raleway", sans-serif;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
@@ -15,6 +16,7 @@
 }
 
 .logo {
+  font-family: "Neue", sans-serif;
   color: black;
   text-transform: uppercase;
   font-weight: bold;
@@ -30,11 +32,11 @@
 }
 
 .nav-item {
-  color: black;
+  color: #4a4a4a;
   font-size: inherit;
   transition: transform 0.5s ease;
   display: inline-block;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid #4a4a4a;
   padding: 0.125rem;
 }
 .nav-item:hover {
@@ -48,14 +50,14 @@
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  border: 0.5px solid black;
+  border: 0.5px solid #4a4a4a;
   border-radius: 2.5px;
 }
 
 .hum-button span {
   width: 80%;
   height: 4px;
-  background-color: black;
+  background-color: #4a4a4a;
   margin: auto;
   display: block;
   font-weight: lighter;
@@ -63,7 +65,7 @@
 
 #side-drawer {
   display: none;
-  background-color: black;
+  background-color: #4a4a4a;
   position: absolute;
   width: 50%;
   height: 50%;

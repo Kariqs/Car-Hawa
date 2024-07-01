@@ -4,10 +4,11 @@ section {
 
 .text-div {
   width: 30%;
+  margin-top: 1rem;
 }
 
 .text-div p {
-  color: black;
+  color: #4a4a4a;
   font-weight: bold;
 }
 
@@ -23,6 +24,7 @@ section {
 
 #product-header {
   text-align: center;
+  color: #4a4a4a;
 }
 
 #products {

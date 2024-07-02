@@ -18,7 +18,9 @@ app.use(basicRoutes);
 app.use("/admin", adminRoutes);
 
 mongoose
-  .connect("https://tinyurl.com/4f5t55a2")
+  .connect(
+    "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/Car-Hawa?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then((result) => {
     app.listen(3000);
     console.log("Connection was sucessful!");

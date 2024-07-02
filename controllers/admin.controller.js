@@ -24,11 +24,7 @@ exports.postAddProduct = (req, res) => {
   product
     .save()
     .then((p) => {
-      const result = res.json({
-        productSaved: true,
-        message: "Product has been saved.",
-      });
-      res.redirect("/admin/add-product", { result: result });
+      res.redirect("/admin/add-product");
     })
     .catch((error) => {
       console.log("An error occured and the product was not saved: " + error);

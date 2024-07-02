@@ -19,7 +19,7 @@ app.use("/admin", adminRoutes);
 
 mongoose
   .connect(
-    "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/Car-Hawa?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/car-hawa?retryWrites=true&w=majority&appName=Cluster0"
   )
   .then((result) => {
     app.listen(3000);

@@ -18,7 +18,7 @@ app.use(basicRoutes);
 app.use("/admin", adminRoutes);
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017")
+  .connect("https://tinyurl.com/4f5t55a2")
   .then((result) => {
     app.listen(3000);
     console.log("Connection was sucessful!");

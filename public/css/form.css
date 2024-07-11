@@ -3,12 +3,11 @@
 }
 
 .form-div form {
-  padding: 0.5rem;
+  padding: 2.5rem;
   border-radius: 10px;
   width: 35%;
   max-width: 25rem;
   margin: auto;
-  border: 1px solid #4a4a4a;
 }
 
 form p {
@@ -25,7 +24,7 @@ form h3 {
 form label {
   display: block;
   color: #4a4a4a;
-  margin-bottom: 0.125rem;
+  margin-bottom: 0.5rem;
 }
 
 form input,
@@ -59,9 +58,9 @@ form textarea {
 .btn {
   width: 6rem;
   height: 2.5rem;
-  background-color: green;
+  background-color: #00695c;
   font: inherit;
-  border: 1px solid green;
+  border: 1px solid #00695c;;
   color: white;
   border-radius: 10px;
   cursor: pointer;
@@ -69,7 +68,7 @@ form textarea {
 
 .btn-alt {
   background-color: transparent;
-  color: green;
+  color: #00695c;
 }
 
 form a {
@@ -79,16 +78,16 @@ form a {
 @media (max-width: 48rem) {
 
   .form-div form {
-    width: 90%;
+    width: 100%;
     margin: 0.5rem auto;
   }
 
   form input,
   form select {
-    height: 2rem;
+    height: 3rem;
   }
 
   .btn {
-    height: 2rem;
+    height: 2.5rem;
   }
 }

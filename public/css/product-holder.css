@@ -63,7 +63,7 @@
 }
 
 .btn {
-  background-color: green;
+  background-color: #00695c;
   color: white;
   padding: 0.25rem;
   border-radius: 5px;
@@ -71,8 +71,8 @@
 
 .btn-alt {
   background-color: transparent;
-  color: green;
-  border: 1px solid green;
+  color: #00695c;
+  border: 1px solid #00695c;
 }
 
 @media (max-width: 48rem) {

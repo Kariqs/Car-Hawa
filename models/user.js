@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const product = require("./product");
 const Schema = mongoose.Schema;
 const userSchema = new Schema({
   email: {
@@ -6,6 +7,10 @@ const userSchema = new Schema({
     required: true,
   },
   name: {
+    type: String,
+    required: true,
+  },
+  phone: {
     type: String,
     required: true,
   },
@@ -20,6 +25,18 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  cart: {
+    items: [
+      {
+        productId: {
+          type: Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+        quantity: { type: Number, required: true },
+      },
+    ],
   },
 });
 

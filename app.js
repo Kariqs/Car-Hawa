@@ -1,26 +1,46 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const MongoDBStore = require("connect-mongodb-session")(session);
 
 const path = require("path");
 const app = express();
+const MONGODBURI =
+  "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/car-hawa?retryWrites=true&w=majority&appName=Cluster0";
+
+const sessionStore = new MongoDBStore({
+  uri: MONGODBURI,
+  collection: "sessions",
+});
 
 const basicRoutes = require("./routes/basic.routes");
 const adminRoutes = require("./routes/admin.routes");
+const authRoutes = require("./routes/auth.routes");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "kariukienard189@gmail.com",
+    resave: false,
+    saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+    },
+  })
+);
 
 app.use(basicRoutes);
+app.use(authRoutes);
 app.use("/admin", adminRoutes);
 
 mongoose
-  .connect(
-    "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/car-hawa?retryWrites=true&w=majority&appName=Cluster0"
-  )
+  .connect(MONGODBURI)
   .then((result) => {
     app.listen(3000);
     console.log("Connection was sucessful!");

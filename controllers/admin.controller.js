@@ -3,7 +3,7 @@ const Product = require("../models/product");
 exports.getAddProduct = (req, res) => {
   Product.find()
     .then((products) => {
-      res.render("Add-product", { products: products });
+      res.render("admin/Add-product", { products: products });
     })
     .catch((error) => {
       console.log("There was error fetching products" + error);

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('includes/head.ejs', {title:"CAR-HAWA | Homepage"}) %>
+    <%- include('../includes/head.ejs', {title:"CAR-HAWA | Homepage"}) %>
         <link rel="stylesheet" href="/css/Homepage.css">
         <link rel="stylesheet" href="/css/product-holder.css">
 </head>
@@ -10,7 +10,7 @@
 <body>
 
     <main>
-        <%- include('includes/header') %>
+        <%- include('../includes/header') %>
             <section class="below-header">
                 <div class="text-div">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, necessitatibus. Aliquam in
@@ -27,7 +27,7 @@
             <section id="products">
 
                 <% for( let product of products) { %>
-                    <%- include('includes/product-holder.ejs',{product:product})
+                    <%- include('../includes/product-holder.ejs',{product:product})
                         %>
                         <% } %>
 

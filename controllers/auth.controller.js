@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const User = require("../models/user");
 
 exports.getSignup = (req, res) => {
-  res.render("Signup");
+  res.render("auth/Signup");
 };
 
 exports.postSignup = (req, res) => {
@@ -30,5 +30,22 @@ exports.postSignup = (req, res) => {
 };
 
 exports.getLogin = (req, res) => {
-  res.render("Login");
+  res.render("auth/Login");
+};
+
+exports.postLogin = (req, res) => {
+  const { email, password } = req.body;
+  User.findOne({ email: email }).then((u) => {
+    if (!u) {
+      return res.redirect("/login");
+    }
+    return bcryptjs.compare(password, u.password).then((result) => {
+      if (result === false) {
+        return res.redirect("/login");
+      }
+      req.session.isLoggedIn = true;
+      req.session.user = u;
+      res.redirect("/");
+    });
+  });
 };

@@ -3,7 +3,7 @@ const Product = require("../models/product");
 exports.getHome = (req, res) => {
   Product.find()
     .then((products) => {
-      res.render("Homepage", {
+      res.render("customer/Homepage", {
         products: products,
       });
     })
@@ -12,13 +12,11 @@ exports.getHome = (req, res) => {
     });
 };
 
-
-
 exports.getOneProduct = (req, res) => {
   const prodId = req.params.productId;
   Product.findById(prodId)
     .then((prod) => {
-      res.render("View-product", { product: prod });
+      res.render("customer/View-product", { product: prod });
     })
     .catch((error) => {
       console.log("Error fetching product: " + error);

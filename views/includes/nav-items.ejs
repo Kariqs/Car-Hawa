@@ -1,9 +1,20 @@
 <ul>
     <li><a class="nav-item" href="/">Home</a></li>
-    <li><a class="nav-item" href="/login">Login</a></li>
-    <li><a class="nav-item" href="/signup">SignUp</a></li>
-    <li><a class="nav-item" href="/about">About Us</a></li>
-    <li><a class="nav-item" href="/admin/orders">Orders</a></li>
-    <li><a class="nav-item" href="/cart">Cart</a></li>
-    <li><a class="nav-item" href="/admin/add-product">Products</a></li>
+    <% if (!isAuthenticated) { %>
+        <li><a class="nav-item" href="/login">Login</a></li>
+        <li><a class="nav-item" href="/signup">SignUp</a></li>
+        <% } %>
+            <li><a class="nav-item" href="/about">About Us</a></li>
+            <% if (isAuthenticated) { %>
+                <li><a class="nav-item" href="/admin/orders">Orders</a></li>
+                <li><a class="nav-item" href="/cart">Cart</a></li>
+                <li><a class="nav-item" href="/admin/add-product">Products</a></li>
+                <li>
+                    <form action="/logout" method="post">
+                        <Button class="nav-item"
+                            style="background-color: transparent; font: inherit; border: none;">Logout</Button>
+                    </form>
+                </li>
+                <% } %>
+
 </ul>

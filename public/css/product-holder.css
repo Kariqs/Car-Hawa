@@ -1,7 +1,7 @@
 .product-card {
   width: 18rem;
-  border: 1px solid #4a4a4a;
-  /* border-radius: 10px; */
+  box-shadow: 2px 4px 8px #4a4a4a;
+  border-radius: 10px;
   overflow: hidden;
 }
 
@@ -77,7 +77,7 @@
 
 @media (max-width: 48rem) {
   .product-card {
-    width: 90%;
+    width: 70%;
     border-radius: 5px;
   }
 }

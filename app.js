@@ -34,6 +34,10 @@ app.use(
     },
   })
 );
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  next();
+});
 
 app.use(basicRoutes);
 app.use(authRoutes);

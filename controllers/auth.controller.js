@@ -40,12 +40,23 @@ exports.postLogin = (req, res) => {
       return res.redirect("/login");
     }
     return bcryptjs.compare(password, u.password).then((result) => {
-      if (result === false) {
+      if (!result) {
         return res.redirect("/login");
       }
       req.session.isLoggedIn = true;
       req.session.user = u;
-      res.redirect("/");
+      return req.session.save((err) => {
+        if (err) {
+          return console.log("Error! Could not save session.");
+        }
+        res.redirect("/");
+      });
     });
+  });
+};
+
+exports.logout = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/");
   });
 };

@@ -17,3 +17,16 @@ main {
   margin: auto;
 }
 
+.user-message {
+  border: 1px solid rgb(91, 245, 91);
+  background-color: rgb(201, 248, 201);
+  color: green;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.user-message--error {
+  border-color: rgb(242, 53, 53);
+  background-color: rgb(240, 172, 172);
+  color: red;
+}

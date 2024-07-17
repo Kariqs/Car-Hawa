@@ -11,41 +11,46 @@
         <%- include('../includes/header.ejs') %>
             <div class="form-div">
                 <form action="/signup" method="post">
-                    <h3>Create an account.</h3>
-                    <p><label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </p>
-                    <p><label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </p>
-                    <p><label for="phone">Phone</label>
-                        <input type="text" id="phone" name="phone" required>
-                    </p>
-                    <p><label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
-                    </p>
-                    <p><label for="location">Location</label>
-                        <select name="location" id="location" required>
-                            <option value="Eldoret">Eldoret</option>
-                            <option value="Eldoret">Eldoret</option>
-                            <option value="Eldoret">Eldoret</option>
-                            <option value="Eldoret">Eldoret</option>
-                            <option value="Eldoret">Eldoret</option>
-                        </select>
-                    </p>
-                    <p><label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-                    </p>
-                    <p>
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" name="confirm-password" id="confirm-password" required>
-                    </p>
-                    <div class="button-div">
-                        <p><button class="btn btn-alt" type="reset">Clear</button></p>
-                        <p><button class="btn" type="submit">SignUp</button></p>
+                    <% if (errorMessage) { %>
+                        <p class="user-message user-message--error">
+                            <%= errorMessage %>
+                        </p>
+                        <% } %>
+                            <h3>Create an account.</h3>
+                            <p><label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </p>
+                            <p><label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </p>
+                            <p><label for="phone">Phone</label>
+                                <input type="text" id="phone" name="phone" required>
+                            </p>
+                            <p><label for="username">Username</label>
+                                <input type="text" id="username" name="username" required>
+                            </p>
+                            <p><label for="location">Location</label>
+                                <select name="location" id="location" required>
+                                    <option value="Eldoret">Eldoret</option>
+                                    <option value="Eldoret">Eldoret</option>
+                                    <option value="Eldoret">Eldoret</option>
+                                    <option value="Eldoret">Eldoret</option>
+                                    <option value="Eldoret">Eldoret</option>
+                                </select>
+                            </p>
+                            <p><label for="password">Password</label>
+                                <input type="password" name="password" id="password" required>
+                            </p>
+                            <p>
+                                <label for="confirm-password">Confirm Password</label>
+                                <input type="password" name="confirm-password" id="confirm-password" required>
+                            </p>
+                            <div class="button-div">
+                                <p><button class="btn btn-alt" type="reset">Clear</button></p>
+                                <p><button class="btn" type="submit">SignUp</button></p>
 
-                    </div>
-                    <a href="/login">Already has an account? Login</a>
+                            </div>
+                            <a href="/login">Already has an account? Login</a>
                 </form>
             </div>
     </main>

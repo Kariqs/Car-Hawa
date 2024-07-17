@@ -4,7 +4,6 @@
         <li><a class="nav-item" href="/login">Login</a></li>
         <li><a class="nav-item" href="/signup">SignUp</a></li>
         <% } %>
-            <li><a class="nav-item" href="/about">About Us</a></li>
             <% if (isAuthenticated) { %>
                 <li><a class="nav-item" href="/admin/orders">Orders</a></li>
                 <li><a class="nav-item" href="/cart">Cart</a></li>
@@ -16,5 +15,6 @@
                     </form>
                 </li>
                 <% } %>
+                    <li><a class="nav-item" href="/about">About Us</a></li>
 
 </ul>

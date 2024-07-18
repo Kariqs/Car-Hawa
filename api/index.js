@@ -15,9 +15,9 @@ const sessionStore = new MongoDBStore({
   collection: "sessions",
 });
 
-const basicRoutes = require("./routes/basic.routes");
-const adminRoutes = require("./routes/admin.routes");
-const authRoutes = require("./routes/auth.routes");
+const basicRoutes = require("../routes/basic.routes");
+const adminRoutes = require("../routes/admin.routes");
+const authRoutes = require("../routes/auth.routes");
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -48,9 +48,11 @@ app.use("/admin", adminRoutes);
 mongoose
   .connect(MONGODBURI)
   .then((result) => {
-    app.listen(3000);
+    app.listen(3001);
     console.log("Connection was sucessful!");
   })
   .catch((error) => {
     console.log("Connection failed " + error);
   });
+
+module.exports = app;

@@ -1,9 +1,8 @@
 const nodemailer = require("nodemailer");
 const MailGen = require("mailgen");
 const { EMAIL, PASSWORD } = require("../utils/env");
-const Mailgen = require("mailgen");
 
-exports.signUpEmail = (email,name) => {
+exports.signUpEmail = (email, name, intro, subject, action) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -23,7 +22,8 @@ exports.signUpEmail = (email,name) => {
   let response = {
     body: {
       name: name,
-      intro: "You have successfully created an account with us.",
+      intro: intro,
+      action: action,
       outro: "Enjoy your online shopping with us.",
     },
   };
@@ -33,7 +33,7 @@ exports.signUpEmail = (email,name) => {
   let message = {
     from: EMAIL,
     to: email,
-    subject: "ACCOUNT CREATION WAS SUCCESSFUL.",
+    subject: subject,
     html: mail,
   };
 

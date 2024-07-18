@@ -11,9 +11,9 @@
         <%- include('../includes/header.ejs') %>
             <div class="form-div">
                 <form action="/login" method="post">
-                    <% if (errorMessage) { %>
+                    <% if (error) { %>
                         <p class="user-message user-message--error">
-                            <%= errorMessage %>
+                            <%= error %>
                         </p>
                         <% } %>
                             <h3>Login to your account.</h3>
@@ -28,6 +28,9 @@
                                 <p><button class="btn" type="submit">Login</button></p>
 
                             </div>
+                            <a href="/reset-password"
+                                style="display: block; color: rgb(38, 38, 85); margin-bottom: 1rem;">Forgot
+                                password?</a>
                             <a href="/signup">Don't have an account? Create one.</a>
                 </form>
             </div>

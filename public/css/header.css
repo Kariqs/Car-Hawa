@@ -9,7 +9,7 @@
   background-color: #00695c;
   position: sticky;
   top: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 .main-header a {
   text-decoration: none;
@@ -48,22 +48,13 @@
 
 .hum-button {
   margin: auto 0;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem;
   display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  border: 0.5px solid white;
+  color: white;
+  border: 1px solid white;
   border-radius: 2.5px;
-}
-
-.hum-button span {
-  width: 80%;
-  height: 4px;
-  background-color: white;
-  margin: auto;
-  display: block;
-  font-weight: lighter;
 }
 
 #side-drawer {

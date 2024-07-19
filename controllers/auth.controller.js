@@ -120,7 +120,7 @@ exports.postResetPassword = (req, res) => {
             button: {
               color: "#22BC66",
               text: "Reset Password",
-              link: `http://127.0.0.1:3000/reset-password/${result.resetToken}`,
+              link: `https://car-hawa.vercel.app/reset-password/${result.resetToken}`,
             },
           }
         );

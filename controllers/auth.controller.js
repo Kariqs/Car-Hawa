@@ -163,7 +163,8 @@ exports.postNewPassword = (req, res, next) => {
   let resetUser;
   User.findOne({
     resetToken: passwordToken,
-    resetTokenExpiration: { $gt: Date.now(), _id: userId },
+    resetTokenExpiration: { $gt: Date.now() },
+    _id: userId,
   })
     .then((user) => {
       resetUser = user;

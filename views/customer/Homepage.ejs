@@ -13,12 +13,18 @@
         <%- include('../includes/header') %>
             <section class="below-header">
                 <div class="text-div">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, necessitatibus. Aliquam in
-                        corrupti blanditiis eos, accusamus iste iure, ad ab vel minus libero mollitia eligendi. Quia
-                        possimus iste atque suscipit.</p>
+                    <p><span style="color: rgb(29, 59, 29);">Champions</span> <br> <span
+                            style="color: rgb(69, 53, 84);">of</span>
+                        <span style="color: rgb(47, 47, 78); text-decoration: underline;">online</span> <br><span
+                            style="text-decoration: underline;">Shopping.</span>
+                    </p>
                 </div>
                 <div class="image-div">
-                    <img src="/images/car-hawa.jpg" alt="coffee">
+                    <p>Welcome to Car-Hawa, your go-to destination for affordable online Shopping and quick deliveries!
+                        We
+                        pride ourselves on offering top-quality online shopping services at unbeatable prices.
+                        <br>Experience the Car-Hawa difference today!</p>
+                    <a href="/signup">SignUp Today &rarr;</a>
                 </div>
             </section>
 
@@ -27,8 +33,7 @@
             <section id="products">
 
                 <% for( let product of products) { %>
-                    <%- include('../includes/product-holder.ejs',{product:product})
-                        %>
+                    <%- include('../includes/product-holder.ejs',{product:product}) %>
                         <% } %>
 
             </section>

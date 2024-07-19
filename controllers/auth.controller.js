@@ -160,6 +160,7 @@ exports.getNewPassword = (req, res, next) => {
 
 exports.postNewPassword = (req, res, next) => {
   const { userId, passwordToken, newPassword } = req.body;
+  console.log(newPassword);
   let resetUser;
   User.findOne({
     resetToken: passwordToken,

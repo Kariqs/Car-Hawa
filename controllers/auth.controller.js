@@ -50,31 +50,42 @@ exports.getLogin = (req, res) => {
   res.render("auth/Login", { error });
 };
 
-exports.postLogin = (req, res) => {
+exports.postLogin = async (req, res) => {
   const { email, password } = req.body;
-  User.findOne({ email: email }).then((u) => {
-    if (!u) {
+
+  try {
+    const user = await User.findOne({ email: email });
+
+    if (!user) {
       req.flash(
         "error",
         "User with this email does not exist. Create account to continue."
       );
       return res.redirect("/login");
     }
-    return bcryptjs.compare(password, u.password).then((result) => {
-      if (!result) {
-        req.flash("error", "Wrong password! Try again.");
+
+    const passwordMatch = await bcryptjs.compare(password, user.password);
+
+    if (!passwordMatch) {
+      req.flash("error", "Wrong password! Try again.");
+      return res.redirect("/login");
+    }
+
+    req.session.isLoggedIn = true;
+    req.session.user = user;
+    req.session.save((err) => {
+      if (err) {
+        console.log("Error! Could not save session.", err);
+        req.flash("error", "An error occurred. Please try again.");
         return res.redirect("/login");
       }
-      req.session.isLoggedIn = true;
-      req.session.user = u;
-      return req.session.save((err) => {
-        if (err) {
-          return console.log("Error! Could not save session.");
-        }
-        res.redirect("/");
-      });
+      res.redirect("/");
     });
-  });
+  } catch (err) {
+    console.log("Error during login process:", err);
+    req.flash("error", "An error occurred. Please try again.");
+    res.redirect("/login");
+  }
 };
 
 exports.logout = (req, res) => {

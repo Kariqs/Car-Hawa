@@ -29,6 +29,10 @@
 .nav-div {
   width: 60%;
 }
+
+.nav-div nav {
+  margin: auto 0;
+}
 .nav-div nav ul {
   list-style: none;
   display: flex;

@@ -1,6 +1,9 @@
 main {
   position: relative;
 }
+.add-product-div {
+  margin-top: 1rem;
+}
 table {
   width: 95%;
   border-collapse: collapse;
@@ -50,6 +53,8 @@ td img {
 }
 
 .form-div {
+  border: 1px solid red;
+  margin-top: 1rem;
   display: none;
   background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
@@ -57,10 +62,11 @@ td img {
   left: 0;
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 2.5rem;
 }
 
 #cancel {
+  margin: 0;
   color: white;
   background-color: red;
   padding: 0.25rem;
@@ -69,4 +75,7 @@ td img {
   font-size: 0.9rem;
   border: 1px solid red;
   text-transform: uppercase;
+  position: absolute;
+  top: 7.5rem;
+  left: 7.5rem;
 }

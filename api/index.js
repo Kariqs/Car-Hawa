@@ -38,6 +38,12 @@ app.use(
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLoggedIn;
+  if (req.session.user) {
+    res.locals.isAdmin = req.session.user.isAdmin;
+  } else {
+    res.locals.isAdmin = false;
+  }
+
   next();
 });
 

@@ -25,7 +25,9 @@
                         pride ourselves on offering top-quality online shopping services at unbeatable prices.
                         <br>Experience the Car-Hawa difference today!
                     </p>
-                    <a href="/signup">SignUp Today &rarr;</a>
+                    <% if (!isAuthenticated) { %>
+                        <a href="/signup">SignUp Today &rarr;</a>
+                        <% } %>
                 </div>
             </section>
 

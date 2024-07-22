@@ -2,11 +2,15 @@
     <div class="logo-div">
         <a class="logo" href="/">Car-hawa</a>
     </div>
-
-    <div class="nav-div">
-        <nav>
-            <%- include('nav-items.ejs') %>
-        </nav>
+    <div class="cart-nav-container">
+        <div class="cart-icon">
+            <a href="/cart"> <i style="margin: auto;" class="fas fa-shopping-cart fa-2x"></i></a> <span id="cart-quantity">1</span>
+        </div>
+        <div class="nav-div">
+            <nav>
+                <%- include('nav-items.ejs') %>
+            </nav>
+        </div>
     </div>
 
     <nav class="hum-button">

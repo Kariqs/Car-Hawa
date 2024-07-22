@@ -6,7 +6,6 @@
         <% } %>
             <% if (isAuthenticated && !isAdmin) { %>
                 <li><a class="nav-item" href="/customer/orders">My Orders</a></li>
-                <li><a class="nav-item" href="/cart">Cart</a></li>
                 <li>
                     <form action="/logout" method="post">
                         <Button class="nav-item"

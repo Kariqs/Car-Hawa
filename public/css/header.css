@@ -26,6 +26,24 @@
   font-weight: bold;
 }
 
+.cart-nav-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-icon a {
+  color: white;
+}
+
+#cart-quantity{
+  background-color: white;
+  color: #00695c;
+  padding: 0.25rem;
+}
+
 .nav-div {
   width: 60%;
 }
@@ -34,6 +52,7 @@
   margin: auto 0;
 }
 .nav-div nav ul {
+  margin: auto 0;
   list-style: none;
   display: flex;
   justify-content: space-around;
@@ -85,5 +104,8 @@
   }
   .nav-div {
     display: none;
+  }
+  .cart-nav-container {
+    justify-content: space-around;
   }
 }

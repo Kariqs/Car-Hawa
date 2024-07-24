@@ -1,7 +1,7 @@
 .product-holder {
   border: 1px solid black;
   overflow: hidden;
-  width: 20%;
+  width: 50%;
   margin: 1rem auto;
   border-radius: 10px;
 }
@@ -10,7 +10,7 @@
 }
 
 .product-image img {
-  width: 100%;
+  width: 40%;
   object-fit: cover;
 }
 .product-desc {

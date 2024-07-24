@@ -11,9 +11,10 @@ exports.getAddProduct = (req, res) => {
 };
 
 exports.postAddProduct = (req, res) => {
-  const { name, initialPrice, price, description, imageUrl } = req.body;
+  const {category, name, initialPrice, price, description, imageUrl } = req.body;
   const discount = (((initialPrice - price) / initialPrice) * 100).toFixed(0);
   const product = new Product({
+    category:category,
     name: name,
     initialPrice: initialPrice,
     price: price,

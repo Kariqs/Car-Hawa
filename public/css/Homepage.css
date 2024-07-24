@@ -62,8 +62,8 @@
   padding: 1rem;
   display: grid;
   place-items: center;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 }
 
 @media (max-width: 48rem) {
@@ -89,5 +89,9 @@
     padding: 0.5rem;
     font-size: 3rem;
     margin: auto;
+  }
+  #products {
+    gap: 0.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   }
 }

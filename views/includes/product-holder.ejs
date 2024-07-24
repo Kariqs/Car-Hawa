@@ -1,21 +1,16 @@
 <article class="product-card">
+    <p id="discount">
+        -<%= product.discount %>%
+    </p>
     <div class="product-image"><img src="<%= product.imageUrl %>" alt=<%=product.name %>></div>
     <div class="product-detail">
-        <h4>
+        <p id="name">
             <%= product.name %>
-        </h4>
-        <div class="price">
-            <p id="selling">Ksh.<%= product.price %>
-            </p>
-            <p id="initial">Was Ksh.<%= product.initialPrice %>
-            </p>
-            <p id="discount">
-                -<%= product.discount %>%
-            </p>
-        </div>
+        </p>
+        <p id="initial">Ksh.<%= product.initialPrice %>
+        </p>
+        <p id="selling">Ksh.<%= product.price %>
+        </p>
     </div>
-    <div class="action-buttons">
-        <a class="btn" href="/product/<%= product._id %>">View Product</a>
-        <a class="btn btn-alt" href="">Add to Cart</a>
-    </div>
+    <a class="view" href="/product/<%= product.id %>">View Product</a>
 </article>

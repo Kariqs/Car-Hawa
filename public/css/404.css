@@ -1,0 +1,41 @@
+.notfound-holder {
+  width: 50%;
+  padding: 1rem;
+  margin: 7.5rem auto;
+  text-align: center;
+  color: #00695c;
+}
+
+.notfound-holder h1 {
+  padding: 0;
+  margin: 0;
+  font-size: 7.5rem;
+  font-weight: bold;
+}
+
+.notfound-holder h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.notfound-holder p {
+  padding: 0;
+  margin: 0;
+}
+
+.notfound-holder div {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 48rem) {
+  .notfound-holder {
+    width: 100%;
+  }
+  .notfound-holder h3 {
+    font-size: 1.5rem;
+  }
+}

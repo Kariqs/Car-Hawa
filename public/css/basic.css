@@ -30,3 +30,20 @@ main {
   background-color: rgb(240, 172, 172);
   color: red;
 }
+.btn {
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  background-color: #00695c;
+  font: inherit;
+  border: 1px solid #00695c;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-alt {
+  border: 1px solid #00695c;
+  background-color: transparent;
+  color: #00695c;
+}

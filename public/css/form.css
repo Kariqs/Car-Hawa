@@ -56,22 +56,6 @@ form textarea {
   padding: 0;
 }
 
-.btn {
-  width: 6rem;
-  height: 2.5rem;
-  background-color: #00695c;
-  font: inherit;
-  border: 1px solid #00695c;;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.btn-alt {
-  background-color: transparent;
-  color: #00695c;
-}
-
 form a {
   color: #4a4a4a;
 }

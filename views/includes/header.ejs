@@ -3,14 +3,17 @@
         <a class="logo" href="/">Car-hawa</a>
     </div>
     <div class="cart-nav-container">
-        <div class="cart-icon">
-            <a href="/cart"> <i style="margin: auto;" class="fas fa-shopping-cart fa-2x"></i></a> <span id="cart-quantity">0</span>
-        </div>
-        <div class="nav-div">
-            <nav>
-                <%- include('nav-items.ejs') %>
-            </nav>
-        </div>
+        <% if (!isAdmin) { %>
+            <div class="cart-icon">
+                <a href="/cart"> <i style="margin: auto;" class="fas fa-shopping-cart fa-2x"></i></a> <span
+                    id="cart-quantity">0</span>
+            </div>
+            <% } %>
+                <div class="nav-div">
+                    <nav>
+                        <%- include('nav-items.ejs') %>
+                    </nav>
+                </div>
     </div>
 
     <nav class="hum-button">

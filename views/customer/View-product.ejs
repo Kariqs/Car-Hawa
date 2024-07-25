@@ -13,13 +13,24 @@
                 <div class="product-image">
                     <img src="<%= product.imageUrl %>" alt="">
                 </div>
-                <div class="product-desc">
-                    <p>
-                        <%= product.description %>
-                    </p>
-                </div>
-                <div class="product-action">
-                    <a  href="">Add to Cart</a>
+                <div id="vertical-line"></div>
+                <div class="action-div">
+                    <div class="product-desc">
+                        <p class="name">
+                            <%= product.name %>
+                        </p>
+                        <h4>PRODUCT DESCRIPTION</h4>
+                        <p class="desc">
+                            <%= product.description %>
+                        </p>
+                        <p class="price">KSH <%= product.price %>  <span
+                                    style="text-decoration: line-through; font-weight: normal;">
+                                    KSH <%= product.initialPrice %>
+                                </span>  <span id="discount">
+                                    -<%=product.discount%>%
+                                </span></p>
+                        <a class="action" href="">Add to Cart</a>
+                    </div>
                 </div>
             </section>
     </main>

@@ -87,7 +87,6 @@ mongoose
   .connect(MONGODBURI)
   .then((result) => {
     app.listen(3001);
-    console.log("Connection was sucessful!");
   })
   .catch((error) => {
     console.log("Connection failed " + error);

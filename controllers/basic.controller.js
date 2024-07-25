@@ -22,3 +22,35 @@ exports.getOneProduct = (req, res) => {
       console.log("Error fetching product: " + error);
     });
 };
+
+exports.getCart = (req, res) => {
+  if (!req.user) {
+    return res.redirect("/login");
+  }
+  req.user
+    .populate("cart.items.productId")
+    .then((user) => {
+      const products = user.cart.items;
+      res.render("customer/cart", { products: products });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+exports.postCart = (req, res) => {
+  if (!req.user) {
+    return res.redirect("/login");
+  }
+  const prodId = req.body.productId;
+  Product.findById(prodId)
+    .then((product) => {
+      return req.user.addToCart(product);
+    })
+    .then((result) => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

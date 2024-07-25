@@ -42,4 +42,36 @@ const userSchema = new Schema({
   resetTokenExpiration: Date,
 });
 
+userSchema.methods.addToCart = function (product) {
+  //find the index of the product in the cart.
+  const cartProductIndex = this.cart.items.findIndex((cp) => {
+    return cp.productId.toString() === product._id.toString();
+  });
+
+  let newQuantity = 1;
+  //create a copy of the cart Items
+  const updatedCartItems = [...this.cart.items];
+
+  if (cartProductIndex >= 0) {
+    // If the product is already in the cart, increment the quantity
+    newQuantity = this.cart.items[cartProductIndex].quantity + 1;
+    updatedCartItems[cartProductIndex].quantity = newQuantity;
+  } else {
+    // If the product is not in the cart, add it with quantity 1
+    updatedCartItems.push({
+      productId: product._id,
+      quantity: newQuantity,
+    });
+  }
+
+  // Update the cart with the new items
+  const updatedCart = {
+    items: updatedCartItems,
+  };
+
+  // Assign the updated cart to the user's cart and save
+  this.cart = updatedCart;
+  return this.save();
+};
+
 module.exports = mongoose.model("User", userSchema);

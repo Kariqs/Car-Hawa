@@ -6,7 +6,7 @@
         <% if (!isAdmin) { %>
             <div class="cart-icon">
                 <a href="/cart"> <i style="margin: auto;" class="fas fa-shopping-cart fa-2x"></i></a> <span
-                    id="cart-quantity">0</span>
+                    id="cart-quantity"><%= cartItemCount %></span>
             </div>
             <% } %>
                 <div class="nav-div">

@@ -31,7 +31,7 @@ exports.getCart = (req, res) => {
     .populate("cart.items.productId")
     .then((user) => {
       const products = user.cart.items;
-      res.render("customer/cart", { products: products });
+      res.render("customer/Cart", { products: products });
     })
     .catch((err) => {
       console.log(err);

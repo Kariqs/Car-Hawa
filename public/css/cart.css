@@ -74,4 +74,7 @@
   .cart__item form {
     width: 4rem;
   }
+  .checkout {
+    width: auto;
+  }
 }

@@ -66,6 +66,21 @@
   font-weight: bold;
 }
 
+.empty {
+  color: #00695c;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.empty-icon {
+  color: #00695c;
+  margin-top: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
 @media (max-width: 48rem) {
   .cart__item {
     width: 100%;
@@ -76,5 +91,8 @@
   }
   .checkout {
     width: auto;
+  }
+  .empty {
+    width: 100%;
   }
 }

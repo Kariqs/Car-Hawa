@@ -15,10 +15,10 @@ const sessionStore = new MongoDBStore({
   collection: "sessions",
 });
 
-const User = require("../models/user");
 const basicRoutes = require("../routes/basic.routes");
 const adminRoutes = require("../routes/admin.routes");
 const authRoutes = require("../routes/auth.routes");
+const authMiddleware = require("../middlewares/auth.middleware");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
@@ -38,42 +38,7 @@ app.use(
 );
 app.use(flash());
 
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.session.isLoggedIn;
-
-  if (!req.session.user) {
-    req.user = null;
-    res.locals.isAdmin = false;
-    res.locals.cartItemCount = 0; // Set default cart items count to 0
-    return next();
-  }
-
-  User.findById(req.session.user._id)
-    .then((user) => {
-      if (!user) {
-        req.user = null;
-        res.locals.isAdmin = false;
-        res.locals.cartItemCount = 0; // Set default cart items count to 0
-        return next();
-      }
-
-      req.user = user; // Attach the user document to req.user
-      res.locals.isAdmin = user.isAdmin;
-
-      // Calculate total number of items in the cart
-      const cartItemCount = user.cart.items.reduce(
-        (total, item) => total + item.quantity,
-        0
-      );
-      res.locals.cartItemCount = cartItemCount;
-
-      next();
-    })
-    .catch((err) => {
-      console.log(err);
-      next(new Error("Failed to fetch user"));
-    });
-});
+app.use(authMiddleware.resLocals);
 
 app.use(basicRoutes);
 app.use(authRoutes);

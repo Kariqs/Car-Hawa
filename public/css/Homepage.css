@@ -3,38 +3,49 @@
   display: flex;
   height: auto;
   margin: 0.5rem;
-  padding: 1rem;
+  padding: 3rem;
   background: none;
   z-index: 1;
 }
 
-.below-header::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("");
-  background-size: contain;
-  background-position: center;
-  filter: blur(1px);
-  z-index: -1; /* Place the pseudo-element behind the content */
-  opacity: 0.75; 
-}
-
 .text-div {
   text-align: center;
-  font-size: 5rem;
   width: 50%;
   margin-top: 1rem;
+}
+
+.text-div h1{
+font-size: 3rem;
+color: #00695c;
 }
 
 .text-div p {
   margin: 0;
   padding: 0;
+  font-size: 2rem;
   color: #4a4a4a;
+  text-align: left;
+}
+
+.text-div a {
+  margin: auto;
+  margin-top: 1rem;
+  display: block;
+  border: 1px solid #00695c;
+  background-color:transparent;
+  color:#00695c;
+  width: 50%;
+  padding: 0.5rem;
+  text-align: center;
   font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.text-div a:hover {
+  background-color: transparent;
+  border: 1px solid #00695c;
+  color: #00695c;
 }
 
 .image-div {
@@ -43,34 +54,13 @@
   padding: 1rem;
   color: #4a4a4a;
 }
-.image-div p {
-  margin: 0;
-  padding: 0;
-  color: rgb(69, 53, 84);
-  font-size: 2rem;
-  font-weight: bold;
+
+.image-div img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-.image-div a {
-  margin: auto;
-  margin-top: 1rem;
-  display: block;
-  background-color: #00695c;
-  border-radius: 5px;
-  color: white;
-  width: 50%;
-  text-align: center;
-  font-weight: bold;
-  padding: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.image-div a:hover {
-  background-color: transparent;
-  border: 1px solid #00695c;
-  color: #00695c;
-}
 #product-header {
   text-align: center;
   color: #4a4a4a;
@@ -94,10 +84,7 @@
   .image-div {
     width: 100%;
   }
-  .image-div p {
-    font-size: 1.5rem;
-  }
-  .image-div a {
+  .text-div a {
     font-size: 1rem;
     padding: 0.5rem;
   }
@@ -105,7 +92,6 @@
   .text-div {
     width: 100%;
     padding: 0.5rem;
-    font-size: 3rem;
     margin: auto;
   }
   #products {

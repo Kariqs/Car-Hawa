@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../includes/head.ejs',{title:"CAR-HAWA | Edit Product"}) %>
+        <link rel="stylesheet" href="/css/form.css">
+        <link rel="stylesheet" href="/css/add-product.css">
+        <script src="/javascript/add-product.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <%- include('../includes/header.ejs') %>
+            <div class="add-product-div">
+                <div class="form-div" style="display: block;">
+                    <a id="cancel" href="/admin/add-product">Go Back</a>
+                    <form action="/admin/add-product" method="post">
+                        <h3>Edit a Product.</h3>
+                        <p><label for="name">Product Category</label>
+                            <select name="category" id="category">
+                                <option value="<%= product.category %>"><%= product.category %></option>
+                                <option value="electronics">Electronics</option>
+                                <option value="fashion">Fashion</option>
+                                <option value="cosmetics">Cosmetics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="kitchen">Kitchen</option>
+                                <option value="electronics">Electronics</option>
+                            </select>
+                        </p>
+                        <p><label for="name">Product Name</label>
+                            <input type="text" id="name" name="name" required value="<%= product.name %>">
+                        </p>
+                        <p><label for="initialPrice">Initial Product Price</label>
+                            <input type="number" id="initialPrice" name="initialPrice" required value="<%= product.initialPrice %>">
+                        </p>
+                        <p><label for="price">Product Price</label>
+                            <input type="number" id="price" name="price" required value="<%= product.price %>">
+                        </p>
+                        <p><label for="description">Product Description</label>
+                            <textarea name="description" id="description" required><%= product.description %></textarea>
+                        </p>
+                        <p><label for="imageUrl">Product Image URL</label>
+                            <input type="text" name="imageUrl" id="imageUrl" required value="<%= product.imageUrl %>">
+                        <div class="button-div">
+                            <p><button class="btn btn-alt" type="reset">Clear</button></p>
+                            <p><button class="btn" type="submit">Submit</button></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </main>
+</body>
+
+</html>

@@ -11,10 +11,11 @@ exports.getAddProduct = (req, res) => {
 };
 
 exports.postAddProduct = (req, res) => {
-  const {category, name, initialPrice, price, description, imageUrl } = req.body;
+  const { category, name, initialPrice, price, description, imageUrl } =
+    req.body;
   const discount = (((initialPrice - price) / initialPrice) * 100).toFixed(0);
   const product = new Product({
-    category:category,
+    category: category,
     name: name,
     initialPrice: initialPrice,
     price: price,
@@ -40,5 +41,16 @@ exports.deleteProduct = (req, res) => {
     })
     .catch((error) => {
       console.log("An error occured trying to delete product." + error);
+    });
+};
+
+exports.getEditProduct = (req, res) => {
+  const prodId = req.params.productId;
+  Product.findById(prodId)
+    .then((product) => {
+      res.render("admin/Edit-product", { product: product });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };

@@ -54,3 +54,30 @@ exports.getEditProduct = (req, res) => {
       console.log(err);
     });
 };
+
+exports.postEditProduct = (req, res) => {
+  const { id, category, name, initialPrice, price, description, imageUrl } =
+    req.body;
+  const discount = (((initialPrice - price) / initialPrice) * 100).toFixed(0);
+  Product.findById({ _id: id })
+    .then((product) => {
+      product.category = category;
+      product.name = name;
+      product.initialPrice = initialPrice;
+      product.price = price;
+      product.description = description;
+      product.imageUrl = imageUrl;
+      product.discount = discount;
+      product
+        .save()
+        .then((result) => {
+          res.redirect("/admin/add-product");
+        })
+        .catch((err) => {
+          console.log("An error ocuured and editimg the product failed." + err);
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

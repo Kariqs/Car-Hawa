@@ -6,7 +6,12 @@ const authMiddeware = require("../middlewares/auth.middleware");
 
 router.get("/add-product", authMiddeware.isAuth, adminController.getAddProduct);
 router.post("/add-product", adminController.postAddProduct);
-router.get("/edit-product/:productId",authMiddeware.isAuth, adminController.getEditProduct);
+router.get(
+  "/edit-product/:productId",
+  authMiddeware.isAuth,
+  adminController.getEditProduct
+);
+router.post("/edit-product", adminController.postEditProduct);
 router.post("/product/delete/:productId", adminController.deleteProduct);
 
 module.exports = router;

@@ -2,44 +2,63 @@ const bcryptjs = require("bcryptjs");
 const User = require("../models/user");
 const utils = require("../utils/email");
 const crypto = require("crypto");
+const { validationResult } = require("express-validator");
 
 exports.getSignup = (req, res) => {
   let messages = req.flash("error");
   const error = messages.length > 0 ? messages[0] : null;
-  res.render("auth/Signup", { error });
+  res.render("auth/Signup", {
+    error,
+    initialInput: {
+      email: "",
+      name: "",
+      phone: "",
+      username: "",
+      location: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
 };
 
 exports.postSignup = (req, res) => {
   const { email, name, phone, username, location, password, confirmPassword } =
     req.body;
-  User.findOne({ email: email }).then((u) => {
-    if (u) {
-      req.flash(
-        "error",
-        "User with this email already exists, please use a different email or login to continue."
-      );
-      return res.redirect("/signup");
-    }
-    return bcryptjs.hash(password, 15).then((hashedPassword) => {
-      const user = new User({
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).render("auth/Signup", {
+      error: errors.array()[0].msg,
+      initialInput: {
         email: email,
         name: name,
         phone: phone,
         username: username,
         location: location,
-        password: hashedPassword,
-        cart: { items: [] },
-      });
-      user.save().then((u) => {
-        res.redirect("/login");
-        utils.signUpEmail(
-          email,
-          u.name,
-          "You have successfully created an account with us.",
-          "ACCOUNT CREATED SUCCESSFULLY",
-          null
-        );
-      });
+        password: password,
+        confirmPassword: confirmPassword,
+      },
+    });
+  }
+
+  bcryptjs.hash(password, 15).then((hashedPassword) => {
+    const user = new User({
+      email: email,
+      name: name,
+      phone: phone,
+      username: username,
+      location: location,
+      password: hashedPassword,
+      cart: { items: [] },
+    });
+    user.save().then((u) => {
+      res.redirect("/login");
+      utils.signUpEmail(
+        email,
+        u.name,
+        "You have successfully created an account with us.",
+        "ACCOUNT CREATED SUCCESSFULLY",
+        null
+      );
     });
   });
 };

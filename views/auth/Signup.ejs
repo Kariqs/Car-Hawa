@@ -10,7 +10,7 @@
     <main>
         <%- include('../includes/header.ejs') %>
             <div class="form-div">
-                <form action="/signup" method="post" novalidate>
+                <form action="/signup" method="post">
                     <% if (error) { %>
                         <p class="user-message user-message--error">
                             <%= error %>

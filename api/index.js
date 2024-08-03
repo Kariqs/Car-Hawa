@@ -52,8 +52,6 @@ mongoose
   .connect(MONGODBURI)
   .then((result) => {
     app.listen(3001);
-    console.log(process.env.EMAIL)
-    console.log(process.env.PASSWORD)
   })
   .catch((error) => {
     console.log("Connection failed " + error);

@@ -1,13 +1,13 @@
 const nodemailer = require("nodemailer");
 const MailGen = require("mailgen");
-const { EMAIL, PASSWORD } = require("../utils/env");
+require("dotenv").config();
 
 exports.signUpEmail = (email, name, intro, subject, action) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: EMAIL,
-      pass: PASSWORD,
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
     },
   });
 
@@ -31,7 +31,7 @@ exports.signUpEmail = (email, name, intro, subject, action) => {
   let mail = MailGenerator.generate(response);
 
   let message = {
-    from: EMAIL,
+    from: process.env.EMAIL,
     to: email,
     subject: subject,
     html: mail,

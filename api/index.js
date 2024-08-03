@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
+require('dotenv').config();
 
 const path = require("path");
 const app = express();
@@ -51,6 +52,8 @@ mongoose
   .connect(MONGODBURI)
   .then((result) => {
     app.listen(3001);
+    console.log(process.env.EMAIL)
+    console.log(process.env.PASSWORD)
   })
   .catch((error) => {
     console.log("Connection failed " + error);

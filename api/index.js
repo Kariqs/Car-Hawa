@@ -7,8 +7,7 @@ const flash = require("connect-flash");
 
 const path = require("path");
 const app = express();
-const MONGODBURI =
-  "mongodb+srv://kariukibenard189:Benada254@cluster0.lzdomio.mongodb.net/car-hawa?retryWrites=true&w=majority&appName=Cluster0";
+const MONGODBURI = process.env.MONGODBURI;
 
 const sessionStore = new MongoDBStore({
   uri: MONGODBURI,

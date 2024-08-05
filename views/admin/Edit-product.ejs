@@ -14,7 +14,7 @@
             <div class="add-product-div">
                 <div class="form-div" style="display: block;">
                     <a id="cancel" href="/admin/add-product">Go Back</a>
-                    <form action="/admin/edit-product" method="post">
+                    <form id="productForm"  action="/admin/edit-product" method="post" enctype="multipart/form-data">
                         <h3>Edit a Product.</h3>
                         <input type="hidden" name="id" id="id" value="<%= product._id %>">
                         <p><label for="name">Product Category</label>
@@ -43,6 +43,10 @@
                         <p><label for="description">Product Description</label>
                             <textarea name="description" id="description" required><%= product.description %></textarea>
                         </p>
+                        <p><label for="image">Product Image</label>
+                            <input type="file" name="image" id="image">
+                        </p>
+                        <div class="previewDiv"><img id="imagePreview" src="" alt=""></div>
                         <p><label for="imageUrl">Product Image URL</label>
                             <input type="text" name="imageUrl" id="imageUrl" required value="<%= product.imageUrl %>">
                         <div class="button-div">

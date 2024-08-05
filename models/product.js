@@ -25,6 +25,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  deleteUrl: {
+    type: String,
+    required: true,
+  },
   discount: {
     type: Number,
     required: true,

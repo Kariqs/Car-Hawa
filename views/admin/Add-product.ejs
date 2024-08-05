@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-div">
                     <button id="cancel">Close</button>
-                    <form action="/admin/add-product" method="post">
+                    <form id="productForm" action="/admin/add-product" method="post" enctype="multipart/form-data" accept="image/*">
                         <h3>Add a Product.</h3>
                         <p><label for="name">Product Category</label>
                             <select name="category" id="category">
@@ -88,9 +88,10 @@
                         <p><label for="description">Product Description</label>
                             <textarea name="description" id="description" required></textarea>
                         </p>
-                        <p><label for="imageUrl">Product Image URL</label>
-                            <input type="text" name="imageUrl" id="imageUrl" required>
-                        <div class="button-div">
+                        <p><label for="image">Product Image</label>
+                            <input type="file" name="image" id="image">
+                        </p>
+                        <div class="previewDiv"><img id="imagePreview" src="" alt=""></div>
                             <p><button class="btn btn-alt" type="reset">Clear</button></p>
                             <p><button class="btn" type="submit">Submit</button></p>
                         </div>

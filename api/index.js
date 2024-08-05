@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const flash = require("connect-flash");
-require('dotenv').config();
+const multer = require("multer");
+require("dotenv").config();
 
 const path = require("path");
 const app = express();
@@ -19,12 +20,30 @@ const basicRoutes = require("../routes/basic.routes");
 const adminRoutes = require("../routes/admin.routes");
 const authRoutes = require("../routes/auth.routes");
 const authMiddleware = require("../middlewares/auth.middleware");
+const { storage } = require("firebase-admin");
+
+const fileFilter = (req, file, callback) => {
+  if (
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/jpeg" ||
+    file.mimetype === "image/jpg"
+  ) {
+    callback(null, true);
+  } else {
+    callback(null, false);
+  }
+};
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(
+  multer({ storage: multer.memoryStorage(), fileFilter: fileFilter }).single(
+    "image"
+  )
+);
 app.use(
   session({
     secret: "kariukienard189@gmail.com",

@@ -85,3 +85,17 @@ td img {
   top: 7.5rem;
   left: 7.5rem;
 }
+
+#imagePreview {
+  display: none;
+  width: 70%;
+  height: 15rem;
+  margin: auto;
+  object-fit: cover;
+}
+
+.previewDiv{
+  display: none;
+  border: 1px solid #4a4a4a;
+  padding: 0.5rem;
+}

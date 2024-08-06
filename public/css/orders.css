@@ -1,0 +1,39 @@
+#heading{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #00695c;
+    text-align: center;
+}
+.orders {
+  padding: 0.5rem;
+  margin: 0;
+}
+.orders__item {
+  width: 100%;
+  max-width: 70rem;
+  margin: auto;
+  margin-top: 0.25rem;
+  border: 1px solid #00695c;
+  padding: 0.5rem;
+}
+
+.orders__item h1 {
+  font-size: 1rem;
+  color: #00695c;
+}
+
+.orders__products {
+  padding: 0;
+  margin: 0;
+}
+
+.orders__products-item {
+  padding: 0;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+#qty {
+  margin-left: 0.75rem;
+  font-weight: bold;
+}

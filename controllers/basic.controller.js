@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Product = require("../models/product");
+const Order = require("../models/orders");
 exports.getHome = (req, res) => {
   Product.find()
     .then((products) => {
@@ -64,3 +65,44 @@ exports.postCartDeleteProduct = (req, res, next) => {
     })
     .catch((err) => console.log(err));
 };
+
+exports.postOrder = async (req, res, next) => {
+  try {
+    // Populate the user's cart items
+    await req.user.populate("cart.items.productId");
+    // Map the cart items to products
+    const products = req.user.cart.items.map((i) => {
+      return { quantity: i.quantity, product: { ...i.productId._doc } };
+    });
+    // Create a new order
+    const order = new Order({
+      user: {
+        email: req.user.email,
+        userId: req.user,
+      },
+      products: products,
+      status:"Order Placed"
+    });
+
+    await order.save();
+    await req.user.clearCart();
+    res.redirect("/orders");
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};
+
+exports.getOrders = async (req, res, next) => {
+  try {
+    // Find orders for the user
+    const order = await Order.find({ "user.userId": req.user._id });
+    // Render the orders page
+    res.render("customer/orders", { orders: order });
+  } catch (err) {
+    console.log(err);
+    next(err);
+  }
+};
+
+

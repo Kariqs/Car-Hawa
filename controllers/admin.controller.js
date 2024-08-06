@@ -1,6 +1,7 @@
 const Product = require("../models/product");
 const shortid = require("shortid");
 const path = require("path");
+const Order = require("../models/orders");
 const storage = require("../config/firebaseStorageConfig");
 
 exports.getAddProduct = async (req, res) => {
@@ -117,5 +118,17 @@ exports.postEditProduct = async (req, res) => {
     res.redirect("/admin/add-product");
   } catch (err) {
     console.log("An error occurred while editing the product: " + err);
+  }
+};
+
+exports.getAllOrders = async (req, res, next) => {
+  try {
+    // Find orders for the user
+    const order = await Order.find();
+    // Render the orders page
+    res.render("customer/orders", { orders: order });
+  } catch (err) {
+    console.log(err);
+    next(err);
   }
 };

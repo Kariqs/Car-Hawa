@@ -5,7 +5,7 @@
         <li><a class="nav-item" href="/signup">SignUp</a></li>
         <% } %>
             <% if (isAuthenticated && !isAdmin) { %>
-                <li><a class="nav-item" href="/customer/orders">My Orders</a></li>
+                <li><a class="nav-item" href="/orders">My Orders</a></li>
                 <li>
                     <form action="/logout" method="post">
                         <Button class="nav-item"

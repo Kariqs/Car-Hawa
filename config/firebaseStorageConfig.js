@@ -1,20 +1,29 @@
 const admin = require("firebase-admin");
 require("dotenv").config();
+const path = require("path");
+const fs = require("fs");
 
-// Decode base64 string from environment variable
+// Read the Base64 encoded service account key from the environment variable
 const serviceAccountBase64 = process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64;
-const serviceAccountDecoded = Buffer.from(
-  serviceAccountBase64,
-  "base64"
-).toString("utf8");
 
-// Parse the decoded JSON string
-const serviceAccount = JSON.parse(serviceAccountDecoded);
+if (!serviceAccountBase64) {
+  throw new Error("Missing GOOGLE_APPLICATION_CREDENTIALS_BASE64 environment variable.");
+}
+
+let serviceAccount;
+
+try {
+  // Decode the base64 string to JSON
+  const serviceAccountDecoded = Buffer.from(serviceAccountBase64, 'base64').toString('utf8');
+  serviceAccount = JSON.parse(serviceAccountDecoded);
+} catch (error) {
+  throw new Error("Failed to decode or parse the service account key. Please ensure it is correctly encoded.");
+}
 
 // Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "carhawa-f25a1.appspot.com",
+  storageBucket: "car-hawa.appspot.com",
 });
 
 const storage = admin.storage();

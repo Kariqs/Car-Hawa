@@ -23,7 +23,7 @@ try {
 // Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "car-hawa.appspot.com",
+  storageBucket: "carhawa-f25a1.appspot.com",
 });
 
 const storage = admin.storage();

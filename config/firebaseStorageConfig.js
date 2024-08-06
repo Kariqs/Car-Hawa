@@ -1,15 +1,20 @@
 const admin = require("firebase-admin");
 require("dotenv").config();
-const path = require("path");
 
-const serviceAccount = path.join(
-  __dirname,
-  "car-hawa-firebase-adminsdk-fftae-56d3bab26e.json"
-);
+// Decode base64 string from environment variable
+const serviceAccountBase64 = process.env.GOOGLE_APPLICATION_CREDENTIALS_BASE64;
+const serviceAccountDecoded = Buffer.from(
+  serviceAccountBase64,
+  "base64"
+).toString("utf8");
 
+// Parse the decoded JSON string
+const serviceAccount = JSON.parse(serviceAccountDecoded);
+
+// Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "car-hawa.appspot.com",
+  storageBucket: "carhawa-f25a1.appspot.com",
 });
 
 const storage = admin.storage();

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <%- include('../includes/head.ejs', {title:"CAR-HAWA | My Cart"}) %>
+    <%- include('../includes/head.ejs', {title:"CAR-HAWA | Orders"}) %>
         <link rel="stylesheet" href="/css/Homepage.css">
         <link rel="stylesheet" href="/css/product-holder.css">
         <link rel="stylesheet" href="/css/orders.css">
@@ -24,29 +24,32 @@
                     <ul class="orders">
                         <% orders.forEach(order=> { %>
                             <li class="orders__item">
-                                <h1>Order - # <%= order._id %>
+                                <p id="order">Order - #<%= order._id %>
+                                </p>
+                                <hr>
+                                <h1>Order Status - <%= order.status %>
                                 </h1>
                                 <ul class="orders__products">
+                                    <p id="items">Order items</p>
                                     <% order.products.forEach(p=> { %>
                                         <li class="orders__products-item">
                                             &#128073 <%= p.product.name %> <span id="qty">(<%= p.quantity %>)</span>
                                         </li>
                                         <% }); %>
                                 </ul>
-                                <% if (!isAdmin) { %>
-                                    <h1>Status:<%= order.status %>
-                                            <% } %>
-                                                <% if (isAdmin) { %>
-                                                    <form action="/status" method="post">
-                                                        <select name="status" id="status">
-                                                            <option value="Order Placed">Order Placed</option>
-                                                            <option value="Out For Delivery">Out For Delivery</option>
-                                                            <option value="Order Delivered">Order Complete</option>
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </form>
-                                                    <% } %>
-                                    </h1>
+                                <% if (isAdmin) { %>
+                                    <form id="update-form" action="/admin/status" method="post">
+                                        <input type="hidden" name="orderId" id="orderId" value="<%= order._id %>">
+                                        <select name="status" id="status">
+                                            <option value="Order Placed">Order Placed</option>
+                                            <option value="Out For Delivery">Out For Delivery</option>
+                                            <option value="Order Delivered">Order Delivered</option>
+                                            <option value=""></option>
+                                        </select>
+                                        <button class="btn">Update</button>
+                                    </form>
+                                    <% } %>
+                                        </h1>
                             </li>
                             <% }); %>
                     </ul>

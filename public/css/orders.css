@@ -1,25 +1,40 @@
-#heading{
-    font-size: 1rem;
-    text-transform: uppercase;
-    color: #00695c;
-    text-align: center;
+#heading {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #00695c;
+  text-align: center;
 }
 .orders {
   padding: 0.5rem;
+  margin: 0;
+}
+
+#order {
+  text-align: center;
+  color: #00695c;
+  padding: 0.125rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+hr {
+  color: #00695c;
+  padding: 0;
   margin: 0;
 }
 .orders__item {
   width: 100%;
   max-width: 70rem;
   margin: auto;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
   border: 1px solid #00695c;
   padding: 0.5rem;
+  box-shadow: 1px 2px 4px #00695c;
 }
 
 .orders__item h1 {
   font-size: 1rem;
   color: #00695c;
+  text-transform: uppercase;
 }
 
 .orders__products {
@@ -33,7 +48,27 @@
   margin-top: 0.5rem;
 }
 
+#update-form {
+  padding: 0.5rem;
+  margin-top: 0.75rem;
+}
+
 #qty {
   margin-left: 0.75rem;
   font-weight: bold;
+}
+#status {
+  font: inherit;
+  width: 20%;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+#items {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #00695c;
 }

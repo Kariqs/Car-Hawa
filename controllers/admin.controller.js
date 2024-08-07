@@ -132,3 +132,16 @@ exports.getAllOrders = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.updateStatus = async (req, res, next) => {
+  try {
+    const orderId = req.body.orderId;
+    const newStatus = req.body.status;
+    const order = await Order.findById(orderId);
+    if (order) {
+      order.status = newStatus;
+      await order.save();
+      res.redirect("/admin/orders");
+    }
+  } catch (err) {}
+};

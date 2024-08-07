@@ -143,5 +143,7 @@ exports.updateStatus = async (req, res, next) => {
       await order.save();
       res.redirect("/admin/orders");
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
 };

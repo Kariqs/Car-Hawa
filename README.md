@@ -1,6 +1,6 @@
-# Car-Hawa
+# CAR-HAWA
 
-# CAR-HAWA is an online shop made using EJS,CSS, JavaScript and Express Js.
+CAR-HAWA is an online shop made using EJS,CSS, JavaScript and Express Js.
 
 The data for the website is stored in mongodb with the aid of mongoose.
 

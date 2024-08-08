@@ -9,20 +9,20 @@
 }
 
 .text-div {
-  text-align: center;
   width: 50%;
   margin-top: 1rem;
+  padding: 1rem;
 }
 
 .text-div h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #00695c;
 }
 
 .text-div p {
   margin: 0;
   padding: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #4a4a4a;
   text-align: left;
 }
@@ -53,10 +53,11 @@
   width: 50%;
   padding: 1rem;
   color: #4a4a4a;
+  text-align: center;
 }
 
 .image-div img {
-  width: 100%;
+  width: 60%;
   height: auto;
   object-fit: cover;
 }

@@ -1,16 +1,28 @@
 const User = require("../models/user");
 const Product = require("../models/product");
 const Order = require("../models/orders");
-exports.getHome = (req, res) => {
-  Product.find()
-    .then((products) => {
-      res.render("customer/Homepage", {
-        products: products,
-      });
-    })
-    .catch((error) => {
-      console.log("Error fetching products: " + error);
+const ITEMS_PER_PAGE = 7;
+
+exports.getHome = async (req, res) => {
+  try {
+    const page = +req.query.page || 1;
+    const totalItems = await Product.find().countDocuments();
+    const products = await Product.find()
+      .skip((page - 1) * ITEMS_PER_PAGE)
+      .limit(ITEMS_PER_PAGE);
+
+    res.render("customer/Homepage", {
+      products: products,
+      currentPage: page,
+      hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+      hasPreviousPage: page > 1,
+      nextPage: page + 1,
+      previousPage: page - 1,
+      lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
     });
+  } catch (error) {
+    console.log("Error fetching products: " + error);
+  }
 };
 
 exports.getOneProduct = (req, res) => {
@@ -81,7 +93,7 @@ exports.postOrder = async (req, res, next) => {
         userId: req.user,
       },
       products: products,
-      status:"Order Placed"
+      status: "Order Placed",
     });
 
     await order.save();
@@ -104,5 +116,3 @@ exports.getOrders = async (req, res, next) => {
     next(err);
   }
 };
-
-

@@ -42,6 +42,7 @@
 .desc {
   margin: 0;
   width: 100%;
+  white-space: pre-wrap;
 }
 
 .product-desc h4 {

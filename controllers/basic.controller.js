@@ -1,6 +1,8 @@
 const User = require("../models/user");
 const Product = require("../models/product");
 const Order = require("../models/orders");
+const Review = require("../models/review");
+const review = require("../models/review");
 const ITEMS_PER_PAGE = 7;
 
 exports.getHome = async (req, res) => {
@@ -114,5 +116,19 @@ exports.getOrders = async (req, res, next) => {
   } catch (err) {
     console.log(err);
     next(err);
+  }
+};
+
+exports.postReview = async (req, res) => {
+  const prodId = req.params.productId;
+  const review = req.body.review;
+  if (prodId && review) {
+    try {
+      const newReview = new Review({ productId: prodId, review: review });
+      await newReview.save();
+      res.redirect(`/product/${prodId}`);
+    } catch (err) {
+      console.log(err);
+    }
   }
 };

@@ -10,5 +10,6 @@ router.post("/cart", basicControllers.postCart);
 router.post("/cart-delete-item", basicControllers.postCartDeleteProduct);
 router.post("/create-order", basicControllers.postOrder);
 router.get("/orders", basicControllers.getOrders);
+router.post("/review/:productId", basicControllers.postReview);
 
 module.exports = router;

@@ -65,12 +65,44 @@
 .description {
   width: 80%;
   margin: auto;
+  padding: 0.75rem;
+  box-shadow: 0.5px 0.5px 1px #4a4a4a;
 }
 
 .description h4 {
   padding: 0.25rem;
   margin: 0;
   text-align: center;
+}
+
+#review-form {
+  width: 100%;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+#review {
+  font: inherit;
+  width: 100%;
+  height: 2.5rem;
+}
+
+#review-form button {
+  display: block;
+  margin-top: 1rem;
+  border-radius: 0;
+}
+
+.review {
+  width: 80%;
+  padding: 1.5rem;
+  margin: auto;
+}
+
+.review h4 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 @media (max-width: 48rem) {
@@ -82,5 +114,10 @@
   .description {
     width: 100%;
     padding: 0.5rem;
+    box-shadow: none;
+  }
+  .review {
+    padding: 0.5rem;
+    width: 100%;
   }
 }

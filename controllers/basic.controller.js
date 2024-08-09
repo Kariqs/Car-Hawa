@@ -27,15 +27,15 @@ exports.getHome = async (req, res) => {
   }
 };
 
-exports.getOneProduct = (req, res) => {
+exports.getOneProduct = async (req, res) => {
   const prodId = req.params.productId;
-  Product.findById(prodId)
-    .then((prod) => {
-      res.render("customer/View-product", { product: prod });
-    })
-    .catch((error) => {
-      console.log("Error fetching product: " + error);
-    });
+
+  try {
+    const prod = await Product.findById(prodId);
+    res.render("customer/View-product", { product: prod });
+  } catch (error) {
+    console.log("Error fetching product: " + error);
+  }
 };
 
 exports.getCart = (req, res) => {

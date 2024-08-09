@@ -85,10 +85,10 @@
   font: inherit;
   width: 100%;
   height: 2.5rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
   outline-color: #6495ed;
   border: 1.5px solid #4a4a4a;
-  color: #4a4a4a;
+   color: #4a4a4a;
 }
 
 #review-form button {

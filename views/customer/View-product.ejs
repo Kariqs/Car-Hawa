@@ -13,16 +13,13 @@
                 <div class="product-image">
                     <img src="<%= product.imageUrl %>" alt="">
                 </div>
-                <div id="vertical-line"></div>
+
                 <div class="action-div">
                     <div class="product-desc">
                         <p class="name">
                             <%= product.name %>
                         </p>
-                        <h4>PRODUCT DESCRIPTION</h4>
-                        <p class="desc">
-                            <%= product.description %>
-                        </p>
+
                         <p class="price">KSH <%= product.price %> <span
                                     style="text-decoration: line-through; font-weight: normal;">
                                     KSH <%= product.initialPrice %>
@@ -35,6 +32,16 @@
                         </form>
                     </div>
                 </div>
+            </section>
+            <section class="description">
+                <h4>PRODUCT DESCRIPTION</h4>
+                <p class="desc">
+                    <%= product.description %>
+                </p>
+            </section>
+
+            <section class="review">
+
             </section>
     </main>
 </body>

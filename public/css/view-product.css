@@ -4,25 +4,18 @@
   padding: 1rem;
   width: 80%;
   margin: 1rem auto;
-  box-shadow: 2px 4px 8px #4a4a4a;
+  box-shadow: 0.5px 0.5px 1px #4a4a4a;
 }
 .product-image {
   width: 100%;
   flex: 1;
+  text-align: center;
 }
 
 .product-image img {
-  width: 100%;
+  width: 50%;
   margin: auto;
   object-fit: cover;
-}
-
-#vertical-line {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  width: 2px;
-  height: auto;
-  background-color: #4a4a4a;
 }
 
 .action-div {
@@ -34,6 +27,7 @@
 .product-desc {
   padding: 0.25rem;
   width: 100%;
+  margin: auto;
 }
 .name {
   font-weight: bold;
@@ -43,12 +37,6 @@
   margin: 0;
   width: 100%;
   white-space: pre-wrap;
-}
-
-.product-desc h4 {
-  padding: 0.25rem;
-  margin: 0;
-  text-align: center;
 }
 
 .price {
@@ -65,6 +53,7 @@
   display: block;
   font: inherit;
   width: 100%;
+  margin: auto;
   height: 2.5rem;
   text-align: center;
   background-color: #00695c;
@@ -73,10 +62,25 @@
   padding: 0.75rem;
 }
 
+.description {
+  width: 80%;
+  margin: auto;
+}
+
+.description h4 {
+  padding: 0.25rem;
+  margin: 0;
+  text-align: center;
+}
+
 @media (max-width: 48rem) {
   .product-holder {
     flex-direction: column;
     width: 100%;
     box-shadow: none;
+  }
+  .description {
+    width: 100%;
+    padding: 0.5rem;
   }
 }

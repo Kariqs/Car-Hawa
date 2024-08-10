@@ -7,7 +7,7 @@ main {
 .product-holder {
   display: flex;
   overflow: hidden;
-  padding: 1rem;
+  padding: 0.75rem;
   width: 60%;
   margin: 1rem auto;
   border-radius: 5px;

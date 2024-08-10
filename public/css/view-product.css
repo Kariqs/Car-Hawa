@@ -1,10 +1,17 @@
+main {
+  background-color: rgba(74, 74, 74, 0.1);
+}
+.sect{
+  padding: 1rem;
+}
 .product-holder {
   display: flex;
   overflow: hidden;
   padding: 1rem;
   width: 60%;
   margin: 1rem auto;
-  box-shadow: 0.5px 0.5px 1px #4a4a4a;
+  border-radius: 5px;
+  background-color: white;
 }
 .product-image {
   width: 100%;
@@ -66,7 +73,8 @@
   width: 60%;
   margin: auto;
   padding: 0.75rem;
-  box-shadow: 0.5px 0.5px 1px #4a4a4a;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .description h4 {
@@ -117,7 +125,9 @@
 .review {
   width: 60%;
   padding: 1.5rem;
-  margin: auto;
+  margin: 1rem auto;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .review h4 {
@@ -127,6 +137,9 @@
 }
 
 @media (max-width: 48rem) {
+  main {
+    background-color: white;
+  }
   .product-holder {
     flex-direction: column;
     width: 100%;

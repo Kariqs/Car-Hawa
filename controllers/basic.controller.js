@@ -1,8 +1,6 @@
 const User = require("../models/user");
 const Product = require("../models/product");
 const Order = require("../models/orders");
-const Review = require("../models/review");
-const review = require("../models/review");
 const ITEMS_PER_PAGE = 7;
 
 exports.getHome = async (req, res) => {
@@ -121,14 +119,35 @@ exports.getOrders = async (req, res, next) => {
 
 exports.postReview = async (req, res) => {
   const prodId = req.params.productId;
-  const review = req.body.review;
-  if (prodId && review) {
+  const reviewText = req.body.review;
+  const rating = req.body.rating;
+
+  if (prodId && reviewText && rating) {
     try {
-      const newReview = new Review({ productId: prodId, review: review });
-      await newReview.save();
-      res.redirect(`/product/${prodId}`);
+      // Create the new review object
+      const newReview = {
+        comment: reviewText,
+        rating: rating,
+      };
+
+      const updatedProduct = await Product.findByIdAndUpdate(
+        prodId,
+        { $push: { reviews: newReview } }, // Add the review to the reviews array
+        { new: true, useFindAndModify: false } // Return the updated product document
+      );
+
+      if (updatedProduct) {
+        res.redirect(`/product/${prodId}`);
+      } else {
+        res.status(404).send("Product not found");
+      }
     } catch (err) {
-      console.log(err);
+      console.error(err);
+      res.status(500).send("Server Error");
     }
+  } else {
+    res
+      .status(400)
+      .send("Invalid request: Missing product ID, review, or rating");
   }
 };

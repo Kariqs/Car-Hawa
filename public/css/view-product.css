@@ -81,14 +81,31 @@
   padding: 0.5rem;
 }
 
+.rate {
+  display: flex;
+}
+
+.rating {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+#rating {
+  font: inherit;
+  background-color: transparent;
+  border: 1px solid #4a4a4a;
+  color: #4a4a4a;
+}
+
 #review {
   font: inherit;
-  width: 100%;
+  width: 70%;
   height: 2.5rem;
   padding: 0.5rem;
   outline-color: #6495ed;
   border: 1.5px solid #4a4a4a;
-   color: #4a4a4a;
+  color: #4a4a4a;
 }
 
 #review-form button {

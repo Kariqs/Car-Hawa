@@ -49,7 +49,7 @@ exports.postAddProduct = async (req, res) => {
       name: name,
       initialPrice: initialPrice,
       price: price,
-      description: description,
+      description: description.trim(),
       imageUrl: readUrl,
       deleteUrl: deleteUrl,
       discount: discount,

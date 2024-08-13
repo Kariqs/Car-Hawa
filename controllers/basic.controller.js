@@ -137,7 +137,7 @@ exports.postReview = async (req, res) => {
       );
 
       if (updatedProduct) {
-        res.redirect(`/product/${prodId}`);
+        res.status(201).json({ message: "Review was sent." });
       } else {
         res.status(404).send("Product not found");
       }

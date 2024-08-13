@@ -4,6 +4,7 @@
 <head>
     <%- include('../includes/head.ejs',{title:"Car-Hawa | View Product"}) %>
         <link rel="stylesheet" href="/css/view-product.css">
+        <script src="/javascript/review.js" defer></script>
 </head>
 
 <body>
@@ -14,13 +15,13 @@
                     <div class="product-image">
                         <img src="<%= product.imageUrl %>" alt="">
                     </div>
-    
+
                     <div class="action-div">
                         <div class="product-desc">
                             <p class="name">
                                 <%= product.name %>
                             </p>
-    
+
                             <p class="price">KSH <%= product.price %> <span
                                         style="text-decoration: line-through; font-weight: normal;">
                                         KSH <%= product.initialPrice %>
@@ -40,25 +41,22 @@
                         <%= product.description %>
                     </p>
                 </section>
-    
+
                 <section class="review">
                     <h4>Product Review</h4>
-                    <form id="review-form" action="/review/<%= product._id %>" method="post">
-                        <div class="rate">
-                            <input type="text" name="review" id="review" placeholder="Leave a review for this product.">
-                            <p class="rating">
-                                <label for="rating">Rating</label>
-                                <select name="rating" id="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </p>
-                        </div>
-                        <button class="btn">Send Review</button>
-                    </form>
+                    <input type="hidden" name="productId" value="<%= product._id %>">
+                 <div class="rate">   <input type="text" name="review" id="review" placeholder="Leave a review for this product.">
+                    <p class="rating">
+                        <label for="rating">Rating</label>
+                        <select name="rating" id="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </p></div>
+                    <button class="btn" onclick="postReview(this)">Send Review</button>
                 </section>
             </div>
     </main>

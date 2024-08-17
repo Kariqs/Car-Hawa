@@ -36,57 +36,54 @@ exports.getOneProduct = async (req, res) => {
   }
 };
 
-exports.getCart = (req, res) => {
+exports.getCart = async (req, res) => {
   if (!req.user) {
     return res.redirect("/login");
   }
-  req.user
-    .populate("cart.items.productId")
-    .then((user) => {
-      const products = user.cart.items;
-      res.render("customer/Cart", { products: products });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  try {
+    await req.user.populate("cart.items.productId");
+    const products = req.user.cart.items;
+    res.render("customer/Cart", { products: products });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-exports.postCart = (req, res) => {
+exports.postCart = async (req, res) => {
   if (!req.user) {
     return res.redirect("/login");
   }
+
   const prodId = req.body.productId;
-  Product.findById(prodId)
-    .then((product) => {
-      return req.user.addToCart(product);
-    })
-    .then((result) => {
-      res.redirect("/");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+  try {
+    const product = await Product.findById(prodId);
+    await req.user.addToCart(product);
+    res.redirect("/");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-exports.postCartDeleteProduct = (req, res, next) => {
+exports.postCartDeleteProduct = async (req, res) => {
   const prodId = req.body.productId;
-  req.user
-    .removeFromCart(prodId)
-    .then((result) => {
-      res.redirect("/cart");
-    })
-    .catch((err) => console.log(err));
+
+  try {
+    await req.user.removeFromCart(prodId);
+    res.redirect("/cart");
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 exports.postOrder = async (req, res, next) => {
   try {
-    // Populate the user's cart items
     await req.user.populate("cart.items.productId");
-    // Map the cart items to products
     const products = req.user.cart.items.map((i) => {
       return { quantity: i.quantity, product: { ...i.productId._doc } };
     });
-    // Create a new order
+
     const order = new Order({
       user: {
         email: req.user.email,
@@ -107,9 +104,7 @@ exports.postOrder = async (req, res, next) => {
 
 exports.getOrders = async (req, res, next) => {
   try {
-    // Find orders for the user
     const order = await Order.find({ "user.userId": req.user._id });
-    // Render the orders page
     res.render("customer/orders", { orders: order });
   } catch (err) {
     console.log(err);
@@ -124,7 +119,6 @@ exports.postReview = async (req, res) => {
 
   if (prodId && reviewText && rating) {
     try {
-      // Create the new review object
       const newReview = {
         comment: reviewText,
         rating: rating,
@@ -132,8 +126,8 @@ exports.postReview = async (req, res) => {
 
       const updatedProduct = await Product.findByIdAndUpdate(
         prodId,
-        { $push: { reviews: newReview } }, // Add the review to the reviews array
-        { new: true, useFindAndModify: false } // Return the updated product document
+        { $push: { reviews: newReview } },
+        { new: true, useFindAndModify: false }
       );
 
       if (updatedProduct) {

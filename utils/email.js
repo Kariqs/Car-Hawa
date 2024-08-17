@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const MailGen = require("mailgen");
 require("dotenv").config();
 
-exports.signUpEmail = (email, name, intro, subject, action) => {
+exports.signUpEmail = async (email, name, intro, subject, action) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -37,12 +37,10 @@ exports.signUpEmail = (email, name, intro, subject, action) => {
     html: mail,
   };
 
-  transporter
-    .sendMail(message)
-    .then(() => {
-      return console.log("Email sent.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  try {
+    await transporter.sendMail(message);
+    console.log("Email sent.");
+  } catch (err) {
+    console.log(err);
+  }
 };

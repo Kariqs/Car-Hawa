@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const Product = require("../models/product");
 const Order = require("../models/orders");
-const ITEMS_PER_PAGE = 7;
+const ITEMS_PER_PAGE = 5;
 
 exports.getHome = async (req, res) => {
   try {

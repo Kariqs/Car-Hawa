@@ -3,6 +3,7 @@
   width: 12rem;
   box-shadow: 2px 4px 8px #4a4a4a;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .product-image {

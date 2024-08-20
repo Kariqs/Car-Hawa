@@ -8,62 +8,65 @@
 </head>
 
 <body>
+    <%- include('../includes/header') %>
+        <div class="main-holder">
+            <main>
 
-    <main>
-        <%- include('../includes/header') %>
-            <section class="below-header">
-                <div class="text-div">
-                    <h1>Champions of Online Shopping</h1>
-                    <p>Welcome to Car-Hawa, your go-to destination for affordable online Shopping and quick deliveries!
-                        We
-                        pride ourselves on offering top-quality online shopping services at unbeatable prices.
-                        <br>Experience the Car-Hawa difference today!
-                    </p>
-                    <% if (!isAuthenticated) { %>
-                        <a href="/signup">SignUp Today &rarr;</a>
-                        <% } %>
-                </div>
-                <div class="image-div">
-                    <img src="/images/shop.jpeg" alt="">
-                </div>
-            </section>
-
-            <h2 id="product-header">Featured Products.</h2>
-
-            <section id="products">
-
-                <% for( let product of products) { %>
-                    <%- include('../includes/product-holder.ejs',{product:product}) %>
-                        <% } %>
-
-            </section>
-            <section class="pagination">
-                <% if (currentPage!==1 && previousPage!==1) { %>
-                    <a href="?page=1">1</a>
-                    <% } %>
-                        <% if (hasPreviousPage) { %>
-                            <a href="?page=<%= previousPage %>">
-                                <%= previousPage %>
-                            </a>
+                <section class="below-header">
+                    <div class="text-div">
+                        <h1>Champions of Online Shopping</h1>
+                        <p>Welcome to Car-Hawa, your go-to destination for affordable online Shopping and quick
+                            deliveries!
+                            We
+                            pride ourselves on offering top-quality online shopping services at unbeatable prices.
+                            <br>Experience the Car-Hawa difference today!
+                        </p>
+                        <% if (!isAuthenticated) { %>
+                            <a href="/signup">SignUp Today &rarr;</a>
                             <% } %>
-                                <a class="active" href="?page=<%= currentPage %>">
-                                    <%= currentPage %>
+                    </div>
+                    <div class="image-div">
+                        <img src="/images/shop.jpeg" alt="">
+                    </div>
+                </section>
+
+                <h2 id="product-header">Featured Products.</h2>
+
+                <section id="products">
+
+                    <% for( let product of products) { %>
+                        <%- include('../includes/product-holder.ejs',{product:product}) %>
+                            <% } %>
+
+                </section>
+                <section class="pagination">
+                    <% if (currentPage!==1 && previousPage!==1) { %>
+                        <a href="?page=1">1</a>
+                        <% } %>
+                            <% if (hasPreviousPage) { %>
+                                <a href="?page=<%= previousPage %>">
+                                    <%= previousPage %>
                                 </a>
-                                <% if (hasNextPage) { %>
-                                    <a href="?page=<%= nextPage %>">
-                                        <%= nextPage %>
+                                <% } %>
+                                    <a class="active" href="?page=<%= currentPage %>">
+                                        <%= currentPage %>
                                     </a>
-                                    <% } %>
-                                        <% if (lastPage!==currentPage && nextPage!==lastPage) { %>
-                                            <a href="?page=<%= lastPage %>">
-                                                <%= lastPage %>
-                                            </a>
-                                            <% } %>
+                                    <% if (hasNextPage) { %>
+                                        <a href="?page=<%= nextPage %>">
+                                            <%= nextPage %>
+                                        </a>
+                                        <% } %>
+                                            <% if (lastPage!==currentPage && nextPage!==lastPage) { %>
+                                                <a href="?page=<%= lastPage %>">
+                                                    <%= lastPage %>
+                                                </a>
+                                                <% } %>
 
 
 
-            </section>
-    </main>
+                </section>
+            </main>
+        </div>
 </body>
 
 </html>

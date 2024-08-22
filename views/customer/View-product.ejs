@@ -4,12 +4,14 @@
 <head>
     <%- include('../includes/head.ejs',{title:"Car-Hawa | View Product"}) %>
         <link rel="stylesheet" href="/css/view-product.css">
+        <script src="/javascript/cart.js" defer></script>
         <script src="/javascript/review.js" defer></script>
 </head>
 
 <body>
     <main>
         <%- include('../includes/header.ejs') %>
+            <p class="" id="message">Error occured</p>
             <div class="sect">
                 <section class="product-holder">
                     <div class="product-image">
@@ -28,10 +30,9 @@
                                     </span> <span id="discount">
                                         -<%=product.discount%>%
                                     </span></p>
-                            <form action="/cart" method="POST">
-                                <input type="hidden" name="productId" id="productId" value="<%= product._id %>">
-                                <button class="action">Add to Cart</button>
-                            </form>
+                            <input type="hidden" name="productId" id="productId" value="<%= product._id %>">
+                            <input type="hidden" name="cq" id="cq" value="<%= cartItemCount %>">
+                            <button type="button" onclick="addToCart()" class="action">Add to Cart</button>
                         </div>
                     </div>
                 </section>
@@ -44,19 +45,21 @@
 
                 <section class="review">
                     <h4>Product Review</h4>
-                    <input type="hidden" name="productId" value="<%= product._id %>">
-                 <div class="rate">   <input type="text" name="review" id="review" placeholder="Leave a review for this product.">
-                    <p class="rating">
-                        <label for="rating">Rating</label>
-                        <select name="rating" id="rating">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </p></div>
-                    <button class="btn" onclick="postReview(this)">Send Review</button>
+                    <input type="hidden" id="productId" name="productId" value="<%= product._id %>">
+                    <div class="rate"> <input type="text" name="review" id="review"
+                            placeholder="Leave a review for this product.">
+                        <p class="rating">
+                            <label for="rating">Rating</label>
+                            <select name="rating" id="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </p>
+                    </div>
+                    <button class="btn" onclick="postReview()">Send Review</button>
                 </section>
             </div>
     </main>

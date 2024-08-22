@@ -11,7 +11,7 @@
 <body>
     <main>
         <%- include('../includes/header.ejs') %>
-            <p class="" id="message">Error occured</p>
+            <p class="message" id="message">Error occured</p>
             <div class="sect">
                 <section class="product-holder">
                     <div class="product-image">
@@ -30,6 +30,7 @@
                                     </span> <span id="discount">
                                         -<%=product.discount%>%
                                     </span></p>
+                            <input type="hidden" id="user" value="<%= isAuthenticated %>">
                             <input type="hidden" name="productId" id="productId" value="<%= product._id %>">
                             <input type="hidden" name="cq" id="cq" value="<%= cartItemCount %>">
                             <button type="button" onclick="addToCart()" class="action">Add to Cart</button>

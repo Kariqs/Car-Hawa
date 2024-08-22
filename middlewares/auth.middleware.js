@@ -19,7 +19,9 @@ exports.resLocals = (req, res, next) => {
       }
 
       req.user = user; // Attach the user document to req.user
+
       if (req.session.user) {
+        res.locals.user = req.session.user;
         res.locals.isAdmin = req.session.user.isAdmin;
       } else {
         res.locals.isAdmin = false;

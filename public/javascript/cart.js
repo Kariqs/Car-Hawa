@@ -4,7 +4,10 @@ document.getElementById("cart-quantity").textContent = cartItemCount;
 const addToCart = async () => {
   try {
     const productId = document.getElementById("productId").value;
-    console.log(productId);
+    const isLoggedIn = document.getElementById("user").value;
+    if (!isLoggedIn) {
+      showMessage("Kindly Log In First", "error");
+    }
     const response = await fetch("/cart", {
       method: "POST",
       headers: {
@@ -35,5 +38,3 @@ const showMessage = (message, clas) => {
     document.getElementById("message").classList.remove(clas);
   }, 2000);
 };
-
-

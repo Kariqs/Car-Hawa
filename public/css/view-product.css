@@ -2,7 +2,7 @@ main {
   position: relative;
   background-color: rgba(74, 74, 74, 0.1);
 }
-#message {
+.message {
   position: absolute;
   display: none;
   top: 3rem;
@@ -13,6 +13,11 @@ main {
   color: green;
   text-transform: uppercase;
   width: 30%;
+}
+
+.error {
+  background-color: rgb(244, 150, 150);
+  color: red;
 }
 
 .sect {
@@ -149,7 +154,7 @@ main {
   main {
     background-color: white;
   }
-  #message {
+  .message {
     width: 70%;
     top: 4rem;
     right: 0.5rem;

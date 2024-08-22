@@ -1,24 +1,13 @@
 const User = require("../models/user");
 const Product = require("../models/product");
 const Order = require("../models/orders");
-const ITEMS_PER_PAGE = 5;
 
 exports.getHome = async (req, res) => {
   try {
     const page = +req.query.page || 1;
-    const totalItems = await Product.find().countDocuments();
-    const products = await Product.find()
-      .skip((page - 1) * ITEMS_PER_PAGE)
-      .limit(ITEMS_PER_PAGE);
-
+    const products = await Product.find();
     res.render("customer/Homepage", {
       products: products,
-      currentPage: page,
-      hasNextPage: ITEMS_PER_PAGE * page < totalItems,
-      hasPreviousPage: page > 1,
-      nextPage: page + 1,
-      previousPage: page - 1,
-      lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE),
     });
   } catch (error) {
     console.log("Error fetching products: " + error);
@@ -60,7 +49,7 @@ exports.postCart = async (req, res) => {
   try {
     const product = await Product.findById(prodId);
     await req.user.addToCart(product);
-    res.status(200).json({ message: "Product added to cart"});
+    res.status(200).json({ message: "Product added to cart" });
   } catch (err) {
     console.log(err);
   }

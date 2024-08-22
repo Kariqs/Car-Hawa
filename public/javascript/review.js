@@ -2,14 +2,16 @@ const postReview = async () => {
   const productId = document.getElementById("productId").value;
   const review = document.getElementById("review").value.trim();
   const rating = document.getElementById("rating").value.trim();
+  const isLoggedIn = document.getElementById("user").value;
 
   if (!review || !rating) {
-    return alert("Please enter both a review and a rating.");
+    document.getElementById("message").style.top = "50%";
+    showRes("Review and Rating can't be empty.", "error");
   }
 
-  const ratingValue = parseInt(rating, 10);
-  if (isNaN(ratingValue) || ratingValue < 1 || ratingValue > 5) {
-    return alert("Please enter a valid rating between 1 and 5.");
+  if (!isLoggedIn) {
+    document.getElementById("message").style.top = "50%";
+    showRes("Kindly Log In First", "error");
   }
 
   try {

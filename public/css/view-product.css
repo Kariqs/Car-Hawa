@@ -1,6 +1,20 @@
 main {
+  position: relative;
   background-color: rgba(74, 74, 74, 0.1);
 }
+#message {
+  position: absolute;
+  display: none;
+  top: 3rem;
+  right: 1rem;
+  background-color: rgb(169, 237, 169);
+  padding: 1rem;
+  border-radius: 4px;
+  color: green;
+  text-transform: uppercase;
+  width: 30%;
+}
+
 .sect {
   padding: 1rem;
 }
@@ -134,6 +148,11 @@ main {
 @media (max-width: 48rem) {
   main {
     background-color: white;
+  }
+  #message {
+    width: 70%;
+    top: 4rem;
+    right: 0.5rem;
   }
   .product-holder {
     flex-direction: column;

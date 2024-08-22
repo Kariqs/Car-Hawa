@@ -60,7 +60,7 @@ exports.postCart = async (req, res) => {
   try {
     const product = await Product.findById(prodId);
     await req.user.addToCart(product);
-    res.redirect("/");
+    res.status(200).json({ message: "Product added to cart"});
   } catch (err) {
     console.log(err);
   }
@@ -131,7 +131,7 @@ exports.postReview = async (req, res) => {
       );
 
       if (updatedProduct) {
-        res.status(201).json({ message: "Review was sent." });
+        res.status(201).json({ message: "Review was sent" });
       } else {
         res.status(404).send("Product not found");
       }

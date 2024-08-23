@@ -35,7 +35,7 @@
                             <input type="hidden" name="cq" id="cq" value="<%= cartItemCount %>">
                             <% if (!isAdmin) { %>
                                 <button type="button" onclick="addToCart()" class="action"><i
-                                        class="fas fa-shopping-cart cart-icon"></i>   Add to Cart</button>
+                                        class="fas fa-shopping-cart cart-icon"></i> Add to Cart</button>
                                 <% } %>
                         </div>
                     </div>
@@ -53,16 +53,13 @@
                         <input type="hidden" id="productId" name="productId" value="<%= product._id %>">
                         <div class="rate"> <input type="text" name="review" id="review"
                                 placeholder="Leave a review for this product.">
-                            <p class="rating">
-                                <label for="rating">Rating</label>
-                                <select name="rating" id="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </p>
+                            <div class="rating-container">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
                         </div>
                         <button class="btn" onclick="postReview()">Send Review</button>
                     </section>

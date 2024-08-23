@@ -33,7 +33,10 @@
                             <input type="hidden" id="user" value="<%= isAuthenticated %>">
                             <input type="hidden" name="productId" id="productId" value="<%= product._id %>">
                             <input type="hidden" name="cq" id="cq" value="<%= cartItemCount %>">
-                            <button type="button" onclick="addToCart()" class="action">Add to Cart</button>
+                            <% if (!isAdmin) { %>
+                                <button type="button" onclick="addToCart()" class="action"><i
+                                        class="fas fa-shopping-cart cart-icon"></i>   Add to Cart</button>
+                                <% } %>
                         </div>
                     </div>
                 </section>
@@ -44,24 +47,26 @@
                     </p>
                 </section>
 
-                <section class="review">
-                    <h4>Product Review</h4>
-                    <input type="hidden" id="productId" name="productId" value="<%= product._id %>">
-                    <div class="rate"> <input type="text" name="review" id="review"
-                            placeholder="Leave a review for this product.">
-                        <p class="rating">
-                            <label for="rating">Rating</label>
-                            <select name="rating" id="rating">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </p>
-                    </div>
-                    <button class="btn" onclick="postReview()">Send Review</button>
-                </section>
+                <% if (!isAdmin) { %>
+                    <section class="review">
+                        <h4>Product Review</h4>
+                        <input type="hidden" id="productId" name="productId" value="<%= product._id %>">
+                        <div class="rate"> <input type="text" name="review" id="review"
+                                placeholder="Leave a review for this product.">
+                            <p class="rating">
+                                <label for="rating">Rating</label>
+                                <select name="rating" id="rating">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </p>
+                        </div>
+                        <button class="btn" onclick="postReview()">Send Review</button>
+                    </section>
+                    <% } %>
             </div>
     </main>
 </body>

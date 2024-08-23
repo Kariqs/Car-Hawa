@@ -22,7 +22,8 @@ exports.getSignup = (req, res) => {
 };
 
 exports.postSignup = async (req, res) => {
-  const { email, name, phone, username, location, password, confirmPassword } = req.body;
+  const { email, name, phone, username, location, password, confirmPassword } =
+    req.body;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).render("auth/Signup", {

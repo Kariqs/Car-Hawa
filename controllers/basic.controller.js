@@ -4,7 +4,6 @@ const Order = require("../models/orders");
 
 exports.getHome = async (req, res) => {
   try {
-    const page = +req.query.page || 1;
     const products = await Product.find();
     res.render("customer/Homepage", {
       products: products,

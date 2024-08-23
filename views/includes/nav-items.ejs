@@ -1,15 +1,16 @@
 <ul>
     <% if (!isAuthenticated) { %>
-        <li><a class="nav-item" href="/">Home</a></li>
+        <li><a class="nav-item" href="/">Shop</a></li>
         <li><a class="nav-item" href="/login">Login</a></li>
         <li><a class="nav-item" href="/signup">SignUp</a></li>
         <% } %>
             <% if (isAuthenticated && !isAdmin) { %>
+                <li><a class="nav-item" href="/">Shop</a></li>
                 <li><a class="nav-item" href="/orders">My Orders</a></li>
                 <li>
                     <form action="/logout" method="post">
                         <Button class="nav-item"
-                            style="background-color: transparent; font: inherit; border: none;">Logout</Button>
+                            style="background-color: transparent; font: inherit; border: none; font-size: 1.125rem;">Logout</Button>
                     </form>
                 </li>
                 <% } %>
@@ -19,12 +20,13 @@
                         <% } %>
 
                             <% if (isAuthenticated && isAdmin) { %>
+                                <li><a class="nav-item" href="/">Shop</a></li>
                                 <li><a class="nav-item" href="/admin/add-product"> Manage Products</a></li>
                                 <li><a class="nav-item" href="/admin/orders"> Manage Orders</a></li>
                                 <li>
                                     <form action="/logout" method="post">
                                         <Button class="nav-item"
-                                            style="background-color: transparent; font: inherit; border: none;">Logout</Button>
+                                            style="background-color: transparent; font: inherit; border: none; font-size: 1.125rem;">Logout</Button>
                                     </form>
                                 </li>
                                 <% } %>
